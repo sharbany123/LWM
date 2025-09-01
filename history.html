@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Our History | Liberation War Museum Bangladesh</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(rgba(248, 250, 252, 0.4), rgba(226, 232, 240, 0.4)), 
+            url("https://flass.ewubd.edu/storage/app/uploads/public/5d3/5a2/c0d/5d35a2c0dd4e6880131580.jpg");
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #1a202c;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+        /* Header Styles - Same as main page */
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a202c;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+
+        .admin-access {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .admin-access:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .timeline-controls {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-filter {
+            display: inline-flex;
+            background: white;
+            border-radius: 10px;
+            padding: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: #4a5568;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #d4af37, #8b4513, #d4af37);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #d4af37;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -45px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -45px;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .timeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .timeline-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: #8b4513;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .timeline-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .timeline-nav h4 {
+            font-size: 0.9rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline-nav-item {
+            display: block;
+            padding: 0.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-nav-item:hover,
+        .timeline-nav-item.active {
+            background: #d4af37;
+            color: white;
+        }
+
+        /* Zoom Modal */
+        .zoom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            cursor: zoom-out;
+        }
+
+        .zoom-modal img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .zoom-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -45px;
+            }
+
+            .timeline-nav {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline-container {
+                padding: 2rem 1rem;
+            }
+
+            .timeline-filter {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Page transition animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-monument"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Liberation War Museum</h1>
+                    <p>Preserving Our Heritage</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#collections">Collections</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                    <li><a href="artifact.html">Artifacts</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="index.html#visit">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="admin.html" class="admin-access">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our History</h1>
+            <p>Journey through Bangladesh's path to independence from 1952 to 1971</p>
+        </div>
+    </section>
+
+    <!-- Timeline Container -->
+    <div class="timeline-container">
+        <!-- Timeline Controls -->
+        <div class="timeline-controls">
+            <div class="timeline-filter">
+                <button class="filter-btn active" data-period="all">All Events</button>
+                <button class="filter-btn" data-period="language">Language Movement</button>
+                <button class="filter-btn" data-period="political">Political Events</button>
+                <button class="filter-btn" data-period="war">Liberation War</button>
+                <button class="filter-btn" data-period="victory">Victory</button>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline" id="timeline">
+            <!-- 1952 - Language Movement -->
+            <div class="timeline-item" data-period="language">
+                <div class="timeline-content">
+                    <div class="timeline-date">February 21, 1952</div>
+                    <h3 class="timeline-title">Language Movement Martyrs</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://southasiajournal.net/wp-content/uploads/2019/02/image-3.png" alt="Shaheed Minar">
+                    </div>
+                    <p class="timeline-description">
+                        Students and activists sacrificed their lives demanding recognition of Bengali as a state language of Pakistan. This pivotal moment ignited the Bengali nationalism that would eventually lead to independence.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Language Rights</span>
+                        <span class="timeline-tag">Student Movement</span>
+                        <span class="timeline-tag">Cultural Identity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1966 - Six Point Movement -->
+            <div class="timeline-item" data-period="political">
+                <div class="timeline-content">
+                    <div class="timeline-date">February 5, 1966</div>
+                    <h3 class="timeline-title">Six Point Movement</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://cdn.daily-sun.com/public/news_images/2021/06/07/ds-Six-point-1.jpg" alt="Sheikh Mujibur Rahman">
+                    </div>
+                    <p class="timeline-description">
+                        Sheikh Mujibur Rahman presents the Six Point Program demanding autonomy for East Pakistan. This becomes the charter of Bengali freedom and earns him the title "Bangabandhu" (Friend of Bengal).
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Political Movement</span>
+                        <span class="timeline-tag">Autonomy</span>
+                        <span class="timeline-tag">Bangabandhu</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1969 - Mass Uprising -->
+            <div class="timeline-item" data-period="political">
+                <div class="timeline-content">
+                    <div class="timeline-date">January-February 1969</div>
+                    <h3 class="timeline-title">Mass Uprising</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://www.bssnews.net/assets/news_photos/2024/01/23/image-169647-1706013727.jpg" alt="1969 Mass Uprising">
+                    </div>
+                    <p class="timeline-description">
+                        A massive popular uprising against the Ayub regime forces the government to release Sheikh Mujibur Rahman and withdraw the Agartala Conspiracy Case. The movement strengthens demands for autonomy.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Mass Movement</span>
+                        <span class="timeline-tag">Student Protests</span>
+                        <span class="timeline-tag">Political Change</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1970 - General Election -->
+            <div class="timeline-item" data-period="political">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 7, 1970</div>
+                    <h3 class="timeline-title">Historic Election Victory</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://ecdn.dhakatribune.net/contents/cache/images/900x0x1/uploads/dten/2020/03/bangabandhu-sheikh-mujibur-rahman-with-tajuddin-ahmed-and-seven-women-leaders-of-awami-league-listening-to-1970-election-result-1584848114223.jpg" alt="1970 Election Results">
+                    </div>
+                    <p class="timeline-description">
+                        Awami League wins a landslide victory in Pakistan's general election, securing 160 out of 162 seats in East Pakistan and an absolute majority in the National Assembly. This mandate is later denied by West Pakistan.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Democratic Victory</span>
+                        <span class="timeline-tag">Awami League</span>
+                        <span class="timeline-tag">Political Mandate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- March 7, 1971 - Historic Speech -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">March 7, 1971</div>
+                    <h3 class="timeline-title">Historic Speech at Ramna Race Course</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2022/03/07/bangabandhu_7th_march_photo_collected.jpg" alt="March 7 Speech">
+                    </div>
+                    <p class="timeline-description">
+                        Bangabandhu Sheikh Mujibur Rahman delivers his iconic speech before millions, declaring "This time the struggle is for our freedom, this time the struggle is for our independence." This speech is now recognized by UNESCO as part of the Memory of the World.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Historic Speech</span>
+                        <span class="timeline-tag">UNESCO Heritage</span>
+                        <span class="timeline-tag">Independence Call</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- March 25, 1971 - Operation Searchlight -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">March 25, 1971</div>
+                    <h3 class="timeline-title">Operation Searchlight</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/pakistan_armys_attack_on_march_25.jpg" alt="Operation Searchlight">
+                    </div>
+                    <p class="timeline-description">
+                        Pakistani military launches a brutal crackdown on Bengali civilians, intellectuals, and political activists. This genocidal campaign marks the beginning of the nine-month Liberation War.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Military Crackdown</span>
+                        <span class="timeline-tag">Genocide</span>
+                        <span class="timeline-tag">War Begins</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- March 26, 1971 - Declaration of Independence -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">March 26, 1971</div>
+                    <h3 class="timeline-title">Declaration of Independence</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://liberationwar.org/wp-content/uploads/2021/03/IMG-20210322-WA0009.jpg" alt="Bangladesh Flag">
+                    </div>
+                    <p class="timeline-description">
+                        Following his arrest, Sheikh Mujibur Rahman's declaration of independence is broadcast. Major Zia-ur-Rahman announces the independence on behalf of Bangabandhu from Chittagong, marking the formal beginning of Bangladesh as an independent nation.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Independence Declaration</span>
+                        <span class="timeline-tag">National Birth</span>
+                        <span class="timeline-tag">Broadcasting History</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- April 1971 - Formation of Mujibnagar Government -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">April 17, 1971</div>
+                    <h3 class="timeline-title">Mujibnagar Government</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://today.thefinancialexpress.com.bd/uploads/1618591546.jpg" alt="Mujibnagar Government">
+                    </div>
+                    <p class="timeline-description">
+                        The provisional government of Bangladesh is formed at Mujibnagar (formerly Baidyanathtala) with Syed Nazrul Islam as Acting President and Tajuddin Ahmad as Prime Minister, providing political legitimacy to the liberation struggle.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Provisional Government</span>
+                        <span class="timeline-tag">Political Structure</span>
+                        <span class="timeline-tag">International Recognition</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- December 3, 1971 - India-Pakistan War -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 3, 1971</div>
+                    <h3 class="timeline-title">India Joins the War</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://www.financialexpress.com/wp-content/uploads/2017/12/india-apk-war.jpg?w=1024" alt="India Pakistan War 1971">
+                    </div>
+                    <p class="timeline-description">
+                        Following Pakistani air strikes on Indian airfields, India formally enters the war in support of Bangladesh. The Mukti Bahini and Indian forces launch coordinated operations against Pakistani military positions.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">International Support</span>
+                        <span class="timeline-tag">Military Alliance</span>
+                        <span class="timeline-tag">Joint Operations</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- December 14, 1971 - Intellectual Killings -->
+            <div class="timeline-item" data-period="war">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 14, 1971</div>
+                    <h3 class="timeline-title">Martyred Intellectuals Day</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/Dead_bodies_of_Bengali_intellectuals%2C_14_December_1971.jpg" alt="Martyred Intellectuals Memorial">
+                    </div>
+                    <p class="timeline-description">
+                        Pakistani forces and their local collaborators systematically kill prominent Bengali intellectuals, professors, doctors, engineers, and writers in a final attempt to cripple the emerging nation's intellectual capacity.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Intellectual Genocide</span>
+                        <span class="timeline-tag">Cultural Destruction</span>
+                        <span class="timeline-tag">Martyrdom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- December 16, 1971 - Victory Day -->
+            <div class="timeline-item" data-period="victory">
+                <div class="timeline-content">
+                    <div class="timeline-date">December 16, 1971</div>
+                    <h3 class="timeline-title">Victory Day - Birth of Bangladesh</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://bmu.edu.bd/public/img/photos_test/thumb/16340903392.jpg" alt="Pakistan Surrender 1971">
+                    </div>
+                    <p class="timeline-description">
+                        Lieutenant General Amir Abdullah Khan Niazi signs the Instrument of Surrender at Ramna Race Course, Dhaka. With this surrender of 93,000 Pakistani troops, the nine-month Liberation War ends and Bangladesh emerges as an independent nation.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Victory</span>
+                        <span class="timeline-tag">Independence</span>
+                        <span class="timeline-tag">National Birth</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1972 - Bangabandhu's Return -->
+            <div class="timeline-item" data-period="victory">
+                <div class="timeline-content">
+                    <div class="timeline-date">January 10, 1972</div>
+                    <h3 class="timeline-title">Bangabandhu's Homecoming</h3>
+                    <div class="timeline-image" onclick="zoomImage(this)">
+                        <img src="https://www.tbsnews.net/sites/default/files/styles/big_3/public/images/2024/01/10/bangladesh_10.jpg" alt="Bangabandhu Returns">
+                    </div>
+                    <p class="timeline-description">
+                        Sheikh Mujibur Rahman returns to independent Bangladesh after his release from Pakistani prison. Millions gather to welcome the Father of the Nation home to lead the newly liberated country toward reconstruction and development.
+                    </p>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Homecoming</span>
+                        <span class="timeline-tag">Father of Nation</span>
+                        <span class="timeline-tag">New Beginning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Navigation -->
+        <div class="timeline-nav" id="timeline-nav">
+            <h4>Quick Navigation</h4>
+            <a href="#" class="timeline-nav-item" data-year="1952">1952 Language Movement</a>
+            <a href="#" class="timeline-nav-item" data-year="1966">1966 Six Points</a>
+            <a href="#" class="timeline-nav-item" data-year="1969">1969 Uprising</a>
+            <a href="#" class="timeline-nav-item" data-year="1970">1970 Election</a>
+            <a href="#" class="timeline-nav-item" data-year="1971-march">March 1971</a>
+            <a href="#" class="timeline-nav-item" data-year="1971-war">Liberation War</a>
+            <a href="#" class="timeline-nav-item" data-year="1971-victory">Victory Day</a>
+            <a href="#" class="timeline-nav-item" data-year="1972">1972 Return</a>
+        </div>
+    </div>
+
+    <!-- Image Zoom Modal -->
+    <div id="zoom-modal" class="zoom-modal" onclick="closeZoom()">
+        <span class="zoom-close">&times;</span>
+        <img id="zoom-image" src="" alt="">
+    </div>
+
+    <script>
+        // Timeline functionality
+        let currentFilter = 'all';
+        
+        // Filter timeline events
+        function filterTimeline(period) {
+            const items = document.querySelectorAll('.timeline-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-period="${period}"]`).classList.add('active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (period === 'all' || item.dataset.period === period) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.classList.add('visible'), 100);
+                } else {
+                    item.classList.remove('visible');
+                    setTimeout(() => item.style.display = 'none', 300);
+                }
+            });
+            
+            currentFilter = period;
+        }
+
+        // Add filter event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterTimeline(btn.dataset.period);
+            });
+        });
+
+        // Timeline navigation
+        document.querySelectorAll('.timeline-nav-item').forEach(navItem => {
+            navItem.addEventListener('click', (e) => {
+                e.preventDefault();
+                const year = navItem.dataset.year;
+                const targetItem = document.querySelector(`[data-period*="${year.split('-')[0]}"]`);
+                
+                if (targetItem) {
+                    // Update active nav item
+                    document.querySelectorAll('.timeline-nav-item').forEach(item => 
+                        item.classList.remove('active'));
+                    navItem.classList.add('active');
+                    
+                    // Scroll to item
+                    targetItem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+
+        // Image zoom functionality
+        function zoomImage(imageContainer) {
+            const img = imageContainer.querySelector('img');
+            const modal = document.getElementById('zoom-modal');
+            const modalImg = document.getElementById('zoom-image');
+            
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeZoom() {
+            document.getElementById('zoom-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Intersection Observer for timeline animations
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Initialize timeline
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                timelineObserver.observe(item);
+            });
+
+            // Set initial visibility for first few items
+            setTimeout(() => {
+                document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                    if (index < 2) {
+                        item.classList.add('visible');
+                    }
+                });
+            }, 500);
+
+            console.log('Timeline page loaded successfully');
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeZoom();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

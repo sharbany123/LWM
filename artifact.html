@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Artifact Archive - Liberation War Museum</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --primary-brown: #8b4513;
+            --dark-brown: #654321;
+            --light-brown: #a0522d;
+            --success-green: #059669;
+            --danger-red: #dc2626;
+            --dark-bg: #1a202c;
+            --medium-bg: #2d3748;
+            --light-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-primary: #1a202c;
+            --text-secondary: #64748b;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(rgba(248, 250, 252, 0.4), rgba(226, 232, 240, 0.4)), 
+            url("https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/news/images/re-visiting_the_liberation_war_museum2.jpg?itok=gTGMSelW&timestamp=1502732248");
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #1a202c;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+        /* Enhanced Header with Advanced Styling */
+        .header {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--dark-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon::before {
+            animation: shimmer 0.8s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.6rem 0.2rem;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), #ffd700);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 32, 44, 0.9) 0%, rgba(45, 55, 72, 0.85) 100%), 
+                       url('https://scontent.fdac41-2.fna.fbcdn.net/v/t39.30808-6/487288271_1397388921322925_1168712406254236781_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=f727a1&_nc_ohc=IQvByIWa7xcQ7kNvwEFLf8A&_nc_oc=Adm4LH7bZ2Jzm_0oP9ESnAbHd-0Ngf7D9CH0Vtp-scXB2IR3TYywp6r5v_c02FoGhpw&_nc_zt=23&_nc_ht=scontent.fdac41-2.fna&_nc_gid=d9-U3oDj5CrMh_ovRQamBw&oh=00_AfXWEwjvmg1abhzkLvzw1LQM7l0C7MU0wnV2QRWr5d5Gbw&oe=68B9220F');
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin-bottom: 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            max-width: 950px;
+            padding: 0 2rem;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            line-height: 1.7;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        /* Main Container with Enhanced Spacing */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Enhanced Page Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--primary-brown));
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.8px;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Advanced Search and Filter Section */
+        .search-filter-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .search-filter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--primary-brown));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .search-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .search-header .toggle-filters {
+            background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-left: auto;
+        }
+
+        .search-header .toggle-filters:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-gold);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(135deg, var(--light-brown), #cd853f);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+        .clear-filters {
+            background: linear-gradient(135deg, #6b7280, #9ca3af);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .clear-filters:hover {
+            background: linear-gradient(135deg, #9ca3af, #d1d5db);
+            transform: translateY(-2px);
+        }
+
+        .filter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .filter-container.hidden {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-select, .filter-input {
+            padding: 1rem 1.2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .filter-select:focus, .filter-input:focus {
+            border-color: var(--primary-gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .results-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .results-count {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .view-toggle {
+            display: flex;
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 0.3rem;
+        }
+
+        .view-btn {
+            padding: 0.6rem 1rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .view-btn.active {
+            background: white;
+            color: var(--primary-brown);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Enhanced Artifacts Grid */
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .artifacts-grid.list-view {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .artifact-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .artifact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--primary-brown));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .artifact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .artifact-card.list-view {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .artifact-card.list-view .artifact-image {
+            width: 120px;
+            height: 120px;
+            margin-right: 2rem;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .artifact-card.list-view .artifact-content {
+            flex: 1;
+        }
+
+        .artifact-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--medium-bg) 0%, #4a5568 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artifact-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.1));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .artifact-card:hover .artifact-image::before {
+            opacity: 1;
+        }
+
+        .artifact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .artifact-card:hover .artifact-image img {
+            transform: scale(1.1);
+        }
+
+        .artifact-content {
+            padding: 2rem;
+        }
+
+        .artifact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .artifact-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .artifact-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: var(--success-green);
+        }
+
+        .status-on-loan {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .artifact-details {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .artifact-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item i {
+            color: var(--primary-gold);
+            width: 16px;
+        }
+
+        .artifact-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        /* Enhanced Pagination */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4rem;
+            gap: 1rem;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pagination-btn {
+            padding: 0.8rem 1.2rem;
+            border: 2px solid var(--border-color);
+            background: white;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        .pagination-btn:hover {
+            background: #f8fafc;
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .pagination-btn.active {
+            background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+            color: white;
+            border-color: var(--primary-brown);
+        }
+
+        .pagination-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Buttons */
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--light-brown), #cd853f);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+            color: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: #f1f5f9;
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .detail-value {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Enhanced Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--medium-bg) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 6rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--primary-brown));
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+
+        .footer-section a, .footer-section p {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-section a i {
+            width: 20px;
+            margin-right: 0.6rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 3rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .artifacts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                padding: 0 1.5rem;
+            }
+            
+            .artifacts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filter-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .main-container {
+                padding: 0 1rem;
+            }
+            
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            
+            .search-container {
+                flex-direction: column;
+            }
+            
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .filter-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .results-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .artifact-card.list-view {
+                flex-direction: column;
+            }
+
+            .artifact-card.list-view .artifact-image {
+                width: 100%;
+                height: 200px;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Advanced Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        /* Accessibility Improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for accessibility */
+        *:focus {
+            outline: 2px solid var(--primary-gold);
+            outline-offset: 2px;
+        }
+
+        .btn:focus {
+            outline: 2px solid var(--primary-gold);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-monument"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Liberation War Museum</h1>
+                    <p>Digital Artifact Archive</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="artifact.html" class="active">Artifacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Explore Our Digital Archive</p>
+            <h1>Liberation War Artifacts</h1>
+            <p>Discover the rich history of Bangladesh's struggle for independence through our carefully preserved collection of historical artifacts, documents, and photographs spanning the historic year of 1971.</p>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Page Header with Statistics -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Artifact Collection</h1>
+                <p class="page-subtitle">Browse our comprehensive digital archive of historical artifacts</p>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-artifacts">1,247</span>
+                    <span class="stat-label">Total Artifacts</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1971</span>
+                    <span class="stat-label">Historical Year</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <section class="search-filter-section">
+            <div class="search-header">
+                <h2>Search Artifacts</h2>
+                <button class="toggle-filters" id="toggleFilters">
+                    <i class="fas fa-sliders-h"></i> Toggle Filters
+                </button>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by artifact name, description, or keyword...">
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+                <button class="clear-filters" id="clearFilters">
+                    <i class="fas fa-undo"></i> Clear
+                </button>
+            </div>
+            
+            <div class="filter-container" id="filterContainer">
+                <div class="filter-group">
+                    <label class="filter-label"><i class="fas fa-tag"></i> Category</label>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="weapon">Weapons</option>
+                        <option value="document">Documents</option>
+                        <option value="photograph">Photographs</option>
+                        <option value="personal">Personal Items</option>
+                        <option value="uniform">Uniforms</option>
+                        <option value="medal">Medals & Awards</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label"><i class="fas fa-calendar"></i> Year Range</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" class="filter-input" id="yearFrom" placeholder="From" min="1970" max="1972">
+                        <input type="number" class="filter-input" id="yearTo" placeholder="To" min="1970" max="1972">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label"><i class="fas fa-map-marker-alt"></i> Location Found</label>
+                    <select class="filter-select" id="locationFilter">
+                        <option value="">All Locations</option>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="chittagong">Chittagong</option>
+                        <option value="sylhet">Sylhet</option>
+                        <option value="khulna">Khulna</option>
+                        <option value="rajshahi">Rajshahi</option>
+                        <option value="rangpur">Rangpur</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label"><i class="fas fa-star"></i> Condition</label>
+                    <select class="filter-select" id="conditionFilter">
+                        <option value="">All Conditions</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Header -->
+        <div class="results-header">
+            <div class="results-info">
+                <span class="results-count" id="resultsCount">Showing 12 of 1,247 artifacts</span>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" id="gridViewBtn" title="Grid View">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-btn" id="listViewBtn" title="List View">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Artifacts Grid -->
+        <div class="artifacts-grid" id="artifactsGrid">
+            <!-- Artifact cards will be dynamically generated here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination">
+                <button class="pagination-btn" id="prevPage">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn" id="nextPage">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <span class="pagination-info">Page 1 of 42</span>
+        </div>
+    </div>
+
+    <!-- Artifact Detail Modal -->
+    <div class="modal" id="artifactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Artifact Title</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <span class="detail-label">Category</span>
+                        <span class="detail-value" id="modalCategory">Weapon</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Year</span>
+                        <span class="detail-value" id="modalYear">1971</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Location Found</span>
+                        <span class="detail-value" id="modalLocation">Dhaka</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Condition</span>
+                        <span class="detail-value" id="modalCondition">Good</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Donor</span>
+                        <span class="detail-value" id="modalDonor">Abdul Rahman</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Accession Number</span>
+                        <span class="detail-value" id="modalAccession">LWM-1971-0423</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Description</span>
+                    <p class="detail-value" id="modalDescription">Detailed description of the artifact goes here. This provides historical context and significance of the item in relation to the Liberation War of Bangladesh.</p>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Historical Significance</span>
+                    <p class="detail-value" id="modalSignificance">This artifact played a crucial role during the Liberation War. It represents the struggle and sacrifice of the freedom fighters who fought for Bangladesh's independence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Agargaon, Dhaka-1207, Bangladesh</p>
+                <p><i class="fas fa-phone"></i> +880-2-8116553</p>
+                <p><i class="fas fa-envelope"></i> info@liberationwarmuseum.org</p>
+                <p><i class="fas fa-globe"></i> www.liberationwarmuseum.org</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Navigation</h3>
+                <a href="#about">About Museum</a>
+                <a href="#collections">Collections</a>
+                <a href="#events">Events & Programs</a>
+                <a href="#visit">Visitor Information</a>
+            </div>
+            <div class="footer-section">
+                <h3>Educational Resources</h3>
+                <a href="#">Research Library</a>
+                <a href="#">Digital Archive</a>
+                <a href="#">Educational Materials</a>
+                <a href="#">Publication Catalog</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Liberation War Museum Bangladesh. All rights reserved. Preserving history for future generations.</p>
+        </div>
+    </footer>
+    <script>
+// Sample data for artifacts
+        const artifacts = [
+            {
+                id: 1,
+                title: "Mukti Bahini Standard Issue Rifle",
+                category: "weapon",
+                year: 1971,
+                location: "Dhaka",
+                condition: "good",
+                donor: "Abdul Rahman",
+                accession: "LWM-1971-0423",
+                imageUrl: "https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&h=300&fit=crop",
+                description: "Standard issue rifle used by Mukti Bahini freedom fighters during the Liberation War. This particular rifle was recovered from the Dhaka University area.",
+                significance: "Represents the armed resistance against Pakistani forces and symbolizes the courage of the freedom fighters."
+            },
+            {
+                id: 2,
+                title: "Declaration of Independence Leaflet",
+                category: "document",
+                year: 1971,
+                location: "Chittagong",
+                condition: "fair",
+                donor: "Sheikh Mujibur Rahman Family",
+                accession: "LWM-1971-0871",
+                imageUrl: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop",
+                description: "Original printed leaflet containing the Declaration of Independence that was distributed secretly throughout Bangladesh in March 1971.",
+                significance: "One of the earliest printed copies of the declaration that marked the beginning of the Liberation War."
+            },
+            {
+                id: 3,
+                title: "Photograph of Refugee Camp",
+                category: "photograph",
+                year: 1971,
+                location: "Kolkata",
+                condition: "excellent",
+                donor: "Dr. Muhammad Yunus",
+                accession: "LWM-1971-1205",
+                imageUrl: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
+                description: "Black and white photograph showing one of the refugee camps in India where millions of Bangladeshis took shelter during the war.",
+                significance: "Documents the humanitarian crisis and the plight of civilians during the Liberation War."
+            },
+            {
+                id: 4,
+                title: "Freedom Fighter's Personal Diary",
+                category: "document",
+                year: 1976,
+                location: "Sylhet",
+                condition: "poor",
+                donor: "Ahmed Hussain",
+                accession: "LWM-1971-1532",
+                imageUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+                description: "Handwritten diary kept by a freedom fighter during the months of the Liberation War, detailing daily experiences and operations.",
+                significance: "Provides a first-hand account of the experiences and sacrifices of the freedom fighters."
+            },
+            {
+                id: 5,
+                title: "Pakistani Army Helmet",
+                category: "personal",
+                year: 1971,
+                location: "Comilla",
+                condition: "good",
+                donor: "Mukti Bahini Veteran Association",
+                accession: "LWM-1971-1987",
+                imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                description: "Helmet captured from a Pakistani soldier during a battle in the Comilla region. Shows damage from combat.",
+                significance: "Symbolizes the defeat of the Pakistani army and the success of the Mukti Bahini's resistance."
+            },
+            {
+                id: 6,
+                title: "Bangladesh Flag from First Hoisting",
+                category: "personal",
+                year: 1971,
+                location: "Dhaka University",
+                condition: "fair",
+                donor: "Dhaka University",
+                accession: "LWM-1971-2241",
+                imageUrl: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400&h=300&fit=crop",
+                description: "One of the first Bangladesh flags hoisted at Dhaka University in the early days of the independence movement.",
+                significance: "Represents the birth of a nation and the spirit of the independence movement among students and intellectuals."
+            },
+            {
+                id: 7,
+                title: "War Correspondent's Camera",
+                category: "personal",
+                year: 1970,
+                location: "Khulna",
+                condition: "excellent",
+                donor: "Shahidul Alam",
+                accession: "LWM-1971-2567",
+                imageUrl: "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=300&fit=crop",
+                description: "Camera used by an international war correspondent to document the Liberation War. Includes original case and lenses.",
+                significance: "Instrument that helped document and share the realities of the war with the international community."
+            },
+            {
+                id: 8,
+                title: "Medal of Valor",
+                category: "medal",
+                year: 1971,
+                location: "Dhaka",
+                condition: "excellent",
+                donor: "Government of Bangladesh",
+                accession: "LWM-1971-2890",
+                imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+                description: "Posthumous medal awarded to freedom fighters who displayed exceptional courage and made the ultimate sacrifice.",
+                significance: "Recognizes the bravery and sacrifice of the martyrs who gave their lives for Bangladesh's independence."
+            },
+            {
+                id: 9,
+                title: "Guerrilla Training Manual",
+                category: "document",
+                year: 1971,
+                location: "Agartala",
+                condition: "fair",
+                donor: "Indian Military Archives",
+                accession: "LWM-1971-3124",
+                imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+                description: "Training manual used to train Mukti Bahini fighters in guerrilla warfare tactics. Contains handwritten notes.",
+                significance: "Demonstrates the organization and strategic planning behind the resistance movement."
+            },
+            {
+                id: 10,
+                title: "Radio Transmitter",
+                category: "personal",
+                year: 1969,
+                location: "Kolkata",
+                condition: "good",
+                donor: "Swadhin Bangla Betar Kendra",
+                accession: "LWM-1971-3356",
+                imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+                description: "Portable radio transmitter used by Swadhin Bangla Betar Kendra to broadcast news and messages to freedom fighters and civilians.",
+                significance: "Representation of the information war and the role of media in the Liberation struggle."
+            },
+            {
+                id: 11,
+                title: "Medical Kit",
+                category: "personal",
+                year: 1971,
+                location: "Sylhet",
+                condition: "poor",
+                donor: "Dr. Firoza Begum",
+                accession: "LWM-1971-3678",
+                imageUrl: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
+                description: "Field medical kit used by volunteer doctors and nurses to treat wounded freedom fighters and civilians.",
+                significance: "Symbolizes the humanitarian efforts and medical support provided during the war."
+            },
+            {
+                id: 12,
+                title: "Signed Ceasefire Document",
+                category: "document",
+                year: 1971,
+                location: "Dhaka",
+                condition: "excellent",
+                donor: "Government of Bangladesh",
+                accession: "LWM-1971-3920",
+                imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+                description: "Original document signed by Pakistani General AAK Niazi formalizing the surrender and ceasefire on December 16, 1971.",
+                significance: "Historic document marking the end of the Liberation War and the victory of Bangladesh."
+            }
+        ];
+
+        // DOM Elements
+        const artifactsGrid = document.getElementById('artifactsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const clearFilters = document.getElementById('clearFilters');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const yearFrom = document.getElementById('yearFrom');
+        const yearTo = document.getElementById('yearTo');
+        const locationFilter = document.getElementById('locationFilter');
+        const conditionFilter = document.getElementById('conditionFilter');
+        const toggleFilters = document.getElementById('toggleFilters');
+        const filterContainer = document.getElementById('filterContainer');
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const resultsCount = document.getElementById('resultsCount');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const artifactModal = document.getElementById('artifactModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalYear = document.getElementById('modalYear');
+        const modalLocation = document.getElementById('modalLocation');
+        const modalCondition = document.getElementById('modalCondition');
+        const modalDonor = document.getElementById('modalDonor');
+        const modalAccession = document.getElementById('modalAccession');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalSignificance = document.getElementById('modalSignificance');
+
+        // Current state
+        let currentView = 'grid';
+        let filteredArtifacts = [...artifacts];
+        let currentPage = 1;
+        const itemsPerPage = 12;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderArtifacts(filteredArtifacts);
+            setupEventListeners();
+        });
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Search functionality
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Filter functionality
+            categoryFilter.addEventListener('change', performSearch);
+            locationFilter.addEventListener('change', performSearch);
+            conditionFilter.addEventListener('change', performSearch);
+            yearFrom.addEventListener('change', performSearch);
+            yearTo.addEventListener('change', performSearch);
+
+            // Clear filters
+            clearFilters.addEventListener('click', function() {
+                searchInput.value = '';
+                categoryFilter.value = '';
+                locationFilter.value = '';
+                conditionFilter.value = '';
+                yearFrom.value = '';
+                yearTo.value = '';
+                performSearch();
+            });
+
+            // Toggle filters
+            toggleFilters.addEventListener('click', function() {
+                filterContainer.classList.toggle('hidden');
+            });
+
+            // View toggle
+            gridViewBtn.addEventListener('click', function() {
+                currentView = 'grid';
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                artifactsGrid.classList.remove('list-view');
+                renderArtifacts(filteredArtifacts);
+            });
+
+            listViewBtn.addEventListener('click', function() {
+                currentView = 'list';
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+                artifactsGrid.classList.add('list-view');
+                renderArtifacts(filteredArtifacts);
+            });
+
+            // Modal close
+            modalClose.addEventListener('click', function() {
+                artifactModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === artifactModal) {
+                    artifactModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Perform search and filtering
+        function performSearch() {
+            showLoading();
+            
+            // Simulate network delay for demo purposes
+            setTimeout(() => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const category = categoryFilter.value;
+                const location = locationFilter.value;
+                const condition = conditionFilter.value;
+                const fromYear = yearFrom.value ? parseInt(yearFrom.value) : 1970;
+                const toYear = yearTo.value ? parseInt(yearTo.value) : 1972;
+
+                filteredArtifacts = artifacts.filter(artifact => {
+                    // Text search
+                    const matchesSearch = searchTerm === '' || 
+                        artifact.title.toLowerCase().includes(searchTerm) ||
+                        artifact.description.toLowerCase().includes(searchTerm) ||
+                        artifact.significance.toLowerCase().includes(searchTerm);
+                    
+                    // Category filter
+                    const matchesCategory = category === '' || artifact.category === category;
+                    
+                    // Location filter
+                    const matchesLocation = location === '' || artifact.location.toLowerCase() === location;
+                    
+                    // Condition filter
+                    const matchesCondition = condition === '' || artifact.condition === condition;
+                    
+                    // Year range filter
+                    const matchesYear = artifact.year >= fromYear && artifact.year <= toYear;
+                    
+                    return matchesSearch && matchesCategory && matchesLocation && matchesCondition && matchesYear;
+                });
+                
+                currentPage = 1;
+                renderArtifacts(filteredArtifacts);
+                hideLoading();
+            }, 800);
+        }
+
+        // Render artifacts to the grid
+        function renderArtifacts(artifactsToRender) {
+            // Clear the grid
+            artifactsGrid.innerHTML = '';
+            
+            // Update results count
+            resultsCount.textContent = `Showing ${artifactsToRender.length} of ${artifacts.length} artifacts`;
+            
+            if (artifactsToRender.length === 0) {
+                artifactsGrid.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>No artifacts found</h3>
+                        <p>Try adjusting your search or filter criteria</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Render each artifact
+            artifactsToRender.forEach(artifact => {
+                const artifactCard = document.createElement('div');
+                artifactCard.className = `artifact-card ${currentView === 'list' ? 'list-view' : ''}`;
+                artifactCard.innerHTML = `
+                    <div class="artifact-image">
+                        <i class="fas fa-${getIconForCategory(artifact.category)}"></i>
+                    </div>
+                    <div class="artifact-content">
+                        <div class="artifact-header">
+                            <h3 class="artifact-title">${artifact.title}</h3>
+                            <span class="artifact-status ${getRandomStatus()}">${getRandomStatusText()}</span>
+                        </div>
+                        <p class="artifact-details">${truncateText(artifact.description, 100)}</p>
+                        <div class="artifact-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>${artifact.year}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${artifact.location}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span>${capitalizeFirstLetter(artifact.category)}</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>${capitalizeFirstLetter(artifact.condition)}</span>
+                            </div>
+                        </div>
+                        <div class="artifact-actions">
+                            <button class="btn btn-primary btn-sm view-details" data-id="${artifact.id}">
+                                <i class="fas fa-info-circle"></i> Details
+                            </button>
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fas fa-bookmark"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                artifactsGrid.appendChild(artifactCard);
+            });
+            
+            // Add event listeners to view details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const artifactId = parseInt(this.getAttribute('data-id'));
+                    showArtifactDetails(artifactId);
+                });
+            });
+        }
+
+        // Show artifact details in modal
+        function showArtifactDetails(id) {
+            const artifact = artifacts.find(a => a.id === id);
+            
+            if (artifact) {
+                modalTitle.textContent = artifact.title;
+                modalCategory.textContent = capitalizeFirstLetter(artifact.category);
+                modalYear.textContent = artifact.year;
+                modalLocation.textContent = artifact.location;
+                modalCondition.textContent = capitalizeFirstLetter(artifact.condition);
+                modalDonor.textContent = artifact.donor;
+                modalAccession.textContent = artifact.accession;
+                modalDescription.textContent = artifact.description;
+                modalSignificance.textContent = artifact.significance;
+                
+                artifactModal.style.display = 'flex';
+            }
+        }
+
+        // Show loading spinner
+        function showLoading() {
+            loadingSpinner.style.display = 'flex';
+        }
+
+        // Hide loading spinner
+        function hideLoading() {
+            loadingSpinner.style.display = 'none';
+        }
+
+        // Helper functions
+        function getIconForCategory(category) {
+            const icons = {
+                'weapon': 'gun',
+                'document': 'file-alt',
+                'photograph': 'camera',
+                'personal': 'user',
+                'uniform': 'tshirt',
+                'medal': 'medal'
+            };
+            return icons[category] || 'archive';
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substr(0, maxLength) + '...';
+        }
+
+        function getRandomStatus() {
+            const statuses = ['status-active', 'status-on-loan'];
+            return statuses[Math.floor(Math.random() * statuses.length)];
+        }
+
+        function getRandomStatusText() {
+            const statuses = ['Available', 'On Loan'];
+            return statuses[Math.floor(Math.random() * statuses.length)];
+        }
+    </script>
+</body>
+</html>

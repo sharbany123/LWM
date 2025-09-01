@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources Portal | Liberation War Museum Bangladesh</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(rgba(248, 250, 252, 0.4), rgba(226, 232, 240, 0.4)), 
+            url("https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/news/images/re-visiting_the_liberation_war_museum2.jpg?itok=gTGMSelW&timestamp=1502732248");
+
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    color: #1a202c;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+        /* Header Styles - Same as main page */
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a202c;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+
+        .admin-access {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .admin-access:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #8b4513 0%, #d4af37 100%);
+            border-radius: 2px;
+        }
+
+        /* Resource Categories */
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .category-card p {
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Lesson Plans Section */
+        .lesson-plans {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .lesson-header {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .lesson-grade {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .lesson-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .lesson-duration {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .lesson-content {
+            padding: 2rem;
+        }
+
+        .lesson-description {
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .lesson-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .lesson-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .lesson-feature i {
+            color: #d4af37;
+        }
+
+        .lesson-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8b4513;
+            border: 2px solid #8b4513;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary:hover {
+            background: #8b4513;
+            color: white;
+        }
+
+        /* Video Resources */
+        .video-section {
+            padding: 4rem 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .video-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(212, 175, 55, 0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail:hover .play-overlay {
+            background: rgba(212, 175, 55, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .video-description {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        /* School Visit Booking */
+        .booking-section {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 4rem 0;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .booking-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .booking-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .booking-feature {
+            text-align: center;
+        }
+
+        .booking-feature i {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .booking-feature h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .booking-feature p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 32, 44, 0.95);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            padding: 3rem;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2d3748;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            color: #8b4513;
+            transform: scale(1.1);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: #ffffff;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #d4af37;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Downloads Section */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .download-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .download-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a202c;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .download-info h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .download-info p {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .download-link {
+            color: #8b4513;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .download-link:hover {
+            color: #d4af37;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-features {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .nav-menu {
+                gap: 1.5rem;
+            }
+
+            .modal-content {
+                margin: 5% auto;
+                padding: 2rem;
+            }
+        }
+
+        /* Animation Effects */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-monument"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Liberation War Museum</h1>
+                    <p>Preserving Our Heritage</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#collections">Collections</a></li>
+                    <li><a href="index.html#donate">Donate</a></li>
+                    <li><a href="artifact.html">Artifacts</a></li>
+                    
+                    <li><a href="index.html#visit">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="admin.html" class="admin-access">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Educational Resources Portal</h1>
+            <p>Comprehensive educational materials for teachers, students, and researchers</p>
+        </div>
+    </section>
+
+    <!-- Resource Categories -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Resource Categories</h2>
+            <div class="resource-categories">
+                <div class="category-card">
+                    <i class="category-icon fas fa-chalkboard-teacher"></i>
+                    <h3>Lesson Plans</h3>
+                    <p>Ready-to-use lesson plans for different grade levels covering various aspects of the Liberation War and Bangladesh history.</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('lesson-plans')">
+                        <i class="fas fa-book-open"></i>
+                        Browse Lessons
+                    </button>
+                </div>
+                <div class="category-card">
+                    <i class="category-icon fas fa-file-download"></i>
+                    <h3>Student Worksheets</h3>
+                    <p>Interactive worksheets, activities, and assignments designed to engage students with Bangladesh's liberation history.</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('downloads')">
+                        <i class="fas fa-download"></i>
+                        Download Materials
+                    </button>
+                </div>
+                <div class="category-card">
+                    <i class="category-icon fas fa-video"></i>
+                    <h3>Video Resources</h3>
+                    <p>Educational videos, documentaries, and recorded lectures suitable for classroom use and independent study.</p>
+                    <button class="btn btn-primary" onclick="scrollToSection('videos')">
+                        <i class="fas fa-play"></i>
+                        Watch Videos
+                    </button>
+                </div>
+                <div class="category-card">
+                    <i class="category-icon fas fa-school"></i>
+                    <h3>School Visits</h3>
+                    <p>Book guided educational tours for your school with specialized programs tailored to different age groups.</p>
+                    <button class="btn btn-primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-plus"></i>
+                        Book Visit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lesson Plans Section -->
+    <section class="section lesson-plans" id="lesson-plans">
+        <div class="container">
+            <h2 class="section-title">Lesson Plans</h2>
+            <div class="lesson-grid">
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-grade">Grades 3-5</div>
+                        <h3 class="lesson-title">Heroes of 1971</h3>
+                        <p class="lesson-duration">Duration: 45 minutes</p>
+                    </div>
+                    <div class="lesson-content">
+                        <p class="lesson-description">An age-appropriate introduction to the Liberation War focusing on the brave heroes who fought for Bangladesh's independence.</p>
+                        <div class="lesson-features">
+                            <div class="lesson-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Group Activities</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-image"></i>
+                                <span>Visual Materials</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Assessment Tools</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-home"></i>
+                                <span>Take-Home Activities</span>
+                            </div>
+                        </div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" onclick="downloadResource('heroes-lesson-plan')">
+                                <i class="fas fa-download"></i>
+                                Download Plan
+                            </button>
+                            <button class="btn btn-secondary" onclick="previewResource('heroes-lesson-plan')">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-grade">Grades 6-8</div>
+                        <h3 class="lesson-title">Road to Independence</h3>
+                        <p class="lesson-duration">Duration: 60 minutes</p>
+                    </div>
+                    <div class="lesson-content">
+                        <p class="lesson-description">Comprehensive study of the political and social movements that led to Bangladesh's independence from 1947 to 1971.</p>
+                        <div class="lesson-features">
+                            <div class="lesson-feature">
+                                <i class="fas fa-timeline"></i>
+                                <span>Timeline Activities</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-map"></i>
+                                <span>Map Exercises</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-book"></i>
+                                <span>Primary Sources</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-comments"></i>
+                                <span>Discussion Topics</span>
+                            </div>
+                        </div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" onclick="downloadResource('road-independence-plan')">
+                                <i class="fas fa-download"></i>
+                                Download Plan
+                            </button>
+                            <button class="btn btn-secondary" onclick="previewResource('road-independence-plan')">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-grade">Grades 9-12</div>
+                        <h3 class="lesson-title">Liberation War Analysis</h3>
+                        <p class="lesson-duration">Duration: 90 minutes</p>
+                    </div>
+                    <div class="lesson-content">
+                        <p class="lesson-description">In-depth analysis of the Liberation War including geopolitical context, international relations, and post-war nation building.</p>
+                        <div class="lesson-features">
+                            <div class="lesson-feature">
+                                <i class="fas fa-microscope"></i>
+                                <span>Research Projects</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-debate"></i>
+                                <span>Debate Topics</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Data Analysis</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-globe"></i>
+                                <span>Global Context</span>
+                            </div>
+                        </div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" onclick="downloadResource('war-analysis-plan')">
+                                <i class="fas fa-download"></i>
+                                Download Plan
+                            </button>
+                            <button class="btn btn-secondary" onclick="previewResource('war-analysis-plan')">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-grade">University Level</div>
+                        <h3 class="lesson-title">Advanced Research Methodologies</h3>
+                        <p class="lesson-duration">Duration: 120 minutes</p>
+                    </div>
+                    <div class="lesson-content">
+                        <p class="lesson-description">Advanced course materials for university students and researchers studying the Liberation War using primary sources and archival research methods.</p>
+                        <div class="lesson-features">
+                            <div class="lesson-feature">
+                                <i class="fas fa-archive"></i>
+                                <span>Archival Research</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-microphone"></i>
+                                <span>Oral History</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-file-contract"></i>
+                                <span>Document Analysis</span>
+                            </div>
+                            <div class="lesson-feature">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Collaborative Research</span>
+                            </div>
+                        </div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" onclick="downloadResource('research-methodologies')">
+                                <i class="fas fa-download"></i>
+                                Download Plan
+                            </button>
+                            <button class="btn btn-secondary" onclick="previewResource('research-methodologies')">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Resources Section -->
+    <section class="section video-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">Video Resources</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('path-to-independence')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sheikh_Mujibur_Rahman_7_March_1971_Speech.jpg/1280px-Sheikh_Mujibur_Rahman_7_March_1971_Speech.jpg" alt="Path to Independence Documentary">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Path to Independence</h3>
+                        <p class="video-description">A comprehensive documentary covering the journey from the Language Movement to the birth of Bangladesh.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-clock"></i> 45 min</span>
+                            <span><i class="fas fa-graduation-cap"></i> Grades 8+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('heroes-stories')">
+                        <img src="https://liberationwar.org/wp-content/uploads/2021/02/mukti5.jpg" alt="Heroes and Their Stories">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Heroes and Their Stories</h3>
+                        <p class="video-description">Personal accounts and testimonies from freedom fighters and their families sharing their experiences.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-clock"></i> 30 min</span>
+                            <span><i class="fas fa-graduation-cap"></i> All Ages</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('cultural-impact')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Shaheed_Minar_Ramna_Dhaka_Bangladesh.JPG/1280px-Shaheed_Minar_Ramna_Dhaka_Bangladesh.JPG" alt="Cultural Impact of Liberation War">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Cultural Impact of Liberation War</h3>
+                        <p class="video-description">Exploring how the Liberation War influenced Bangladeshi art, literature, music, and cultural identity.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-clock"></i> 25 min</span>
+                            <span><i class="fas fa-graduation-cap"></i> Grades 6+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail" onclick="playVideo('women-liberation')">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/1969_uprising_in_East_Pakistan.jpg/1280px-1969_uprising_in_East_Pakistan.jpg" alt="Women in Liberation War">
+                        <div class="play-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Women in Liberation War</h3>
+                        <p class="video-description">Highlighting the crucial role of women freedom fighters, supporters, and survivors during the 1971 war.</p>
+                        <div class="video-meta">
+                            <span><i class="fas fa-clock"></i> 35 min</span>
+                            <span><i class="fas fa-graduation-cap"></i> Grades 7+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section class="section" id="downloads">
+        <div class="container">
+            <h2 class="section-title">Downloadable Materials</h2>
+            <div class="downloads-grid">
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Timeline Worksheet</h4>
+                        <p>Interactive timeline activity for students to map key events of the Liberation War</p>
+                        <a href="#" class="download-link" onclick="downloadResource('timeline-worksheet')">
+                            Download PDF <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Historical Maps Collection</h4>
+                        <p>Maps showing key battles, refugee movements, and territorial changes during 1971</p>
+                        <a href="#" class="download-link" onclick="downloadResource('historical-maps')">
+                            Download ZIP <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Primary Source Documents</h4>
+                        <p>Collection of original speeches, letters, and proclamations from 1971</p>
+                        <a href="#" class="download-link" onclick="downloadResource('primary-sources')">
+                            Download PDF <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Interactive Quiz Bank</h4>
+                        <p>Multiple choice and essay questions covering all aspects of Bangladesh history</p>
+                        <a href="#" class="download-link" onclick="downloadResource('quiz-bank')">
+                            Download DOC <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Art & Craft Activities</h4>
+                        <p>Creative activities including flag making, poster design, and monument models</p>
+                        <a href="#" class="download-link" onclick="downloadResource('art-activities')">
+                            Download PDF <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-item">
+                    <div class="download-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Reading Comprehension</h4>
+                        <p>Age-appropriate texts with comprehension questions about Liberation War events</p>
+                        <a href="#" class="download-link" onclick="downloadResource('reading-comprehension')">
+                            Download PDF <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Visit Booking -->
+    <section class="section booking-section">
+        <div class="container">
+            <div class="booking-card">
+                <h3>Book Your School Visit</h3>
+                <p style="color: #4a5568; font-size: 1.1rem; margin-bottom: 2rem;">
+                    Bring history to life for your students with guided tours, interactive workshops, and hands-on learning experiences at the Liberation War Museum.
+                </p>
+                
+                <div class="booking-features">
+                    <div class="booking-feature">
+                        <i class="fas fa-users-class"></i>
+                        <h4>Guided Tours</h4>
+                        <p>Expert guides tailored to your students' age group</p>
+                    </div>
+                    <div class="booking-feature">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Interactive Workshops</h4>
+                        <p>Hands-on activities and historical simulations</p>
+                    </div>
+                    <div class="booking-feature">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Educational Certificates</h4>
+                        <p>Completion certificates for participating students</p>
+                    </div>
+                    <div class="booking-feature">
+                        <i class="fas fa-bus"></i>
+                        <h4>Group Discounts</h4>
+                        <p>Special rates for educational institutions</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;" onclick="openBookingModal()">
+                    <i class="fas fa-calendar-plus"></i>
+                    Book School Visit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Visit Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>
+                <i class="fas fa-school"></i>
+                Book School Visit
+            </h2>
+            <form id="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="school-name">School Name *</label>
+                        <input type="text" id="school-name" required placeholder="Name of your institution">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-person">Contact Person *</label>
+                        <input type="text" id="contact-person" required placeholder="Teacher or coordinator name">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-email">Email Address *</label>
+                        <input type="email" id="contact-email" required placeholder="school@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number *</label>
+                        <input type="tel" id="contact-phone" required placeholder="Contact number">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Visit Date *</label>
+                        <input type="date" id="preferred-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-count">Number of Students *</label>
+                        <select id="student-count" required>
+                            <option value="">Select group size</option>
+                            <option value="10-20">10-20 Students</option>
+                            <option value="21-30">21-30 Students</option>
+                            <option value="31-50">31-50 Students</option>
+                            <option value="51-75">51-75 Students</option>
+                            <option value="76+">More than 75 Students</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="grade-level">Grade Level *</label>
+                        <select id="grade-level" required>
+                            <option value="">Select grade level</option>
+                            <option value="primary">Primary (Grades 1-5)</option>
+                            <option value="secondary">Secondary (Grades 6-10)</option>
+                            <option value="higher-secondary">Higher Secondary (Grades 11-12)</option>
+                            <option value="university">University Level</option>
+                            <option value="mixed">Mixed Age Group</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="visit-type">Visit Type *</label>
+                        <select id="visit-type" required>
+                            <option value="">Select visit type</option>
+                            <option value="general-tour">General Museum Tour</option>
+                            <option value="educational-workshop">Educational Workshop</option>
+                            <option value="research-visit">Research Visit</option>
+                            <option value="cultural-program">Cultural Program</option>
+                            <option value="comprehensive">Comprehensive Package</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="special-interests">Special Interests or Focus Areas</label>
+                    <textarea id="special-interests" rows="3" placeholder="Any specific topics, collections, or periods you'd like to focus on during the visit"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="accessibility-needs">Accessibility Requirements</label>
+                    <textarea id="accessibility-needs" rows="2" placeholder="Please mention any special accessibility needs for students"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Booking Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Resource Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close" onclick="closePreviewModal()">&times;</span>
+            <h2 id="preview-title">
+                <i class="fas fa-eye"></i>
+                Resource Preview
+            </h2>
+            <div id="preview-content">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables for form data storage
+        let schoolBookings = JSON.parse(sessionStorage.getItem('schoolBookings') || '[]');
+
+        // Modal Functions
+        function openBookingModal() {
+            document.getElementById('booking-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Set minimum date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('preferred-date').min = tomorrow.toISOString().split('T')[0];
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closePreviewModal() {
+            document.getElementById('preview-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // School Visit Booking Form
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: Date.now(),
+                schoolName: document.getElementById('school-name').value,
+                contactPerson: document.getElementById('contact-person').value,
+                email: document.getElementById('contact-email').value,
+                phone: document.getElementById('contact-phone').value,
+                preferredDate: document.getElementById('preferred-date').value,
+                studentCount: document.getElementById('student-count').value,
+                gradeLevel: document.getElementById('grade-level').value,
+                visitType: document.getElementById('visit-type').value,
+                specialInterests: document.getElementById('special-interests').value,
+                accessibilityNeeds: document.getElementById('accessibility-needs').value,
+                status: 'pending',
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store the booking request
+            schoolBookings.push(formData);
+            sessionStorage.setItem('schoolBookings', JSON.stringify(schoolBookings));
+            
+            // Show success message
+            alert('School visit booking request submitted successfully! Our education team will contact you within 2 business days to confirm the details and arrange your visit.');
+            
+            // Reset form and close modal
+            document.getElementById('booking-form').reset();
+            closeBookingModal();
+        });
+
+        // Resource download function
+        function downloadResource(resourceId) {
+            // Simulate download process
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+                
+                // Here you would trigger actual download
+                alert(`Resource "${resourceId}" has been downloaded successfully!`);
+            }, 1500);
+        }
+
+        // Resource preview function
+        function previewResource(resourceId) {
+            const modal = document.getElementById('preview-modal');
+            const title = document.getElementById('preview-title');
+            const content = document.getElementById('preview-content');
+            
+            // Sample preview content based on resource type
+            const previewData = {
+                'heroes-lesson-plan': {
+                    title: 'Heroes of 1971 - Lesson Plan Preview',
+                    content: `
+                        <div style="padding: 2rem; background: #f8f9fa; border-radius: 10px; margin-bottom: 2rem;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Learning Objectives:</h3>
+                            <ul style="color: #4a5568; line-height: 1.8;">
+                                <li>Students will identify key freedom fighters and their contributions</li>
+                                <li>Understand the concept of heroism and sacrifice</li>
+                                <li>Develop appreciation for national heroes</li>
+                                <li>Create connections between past heroes and present values</li>
+                            </ul>
+                        </div>
+                        <div style="padding: 2rem; background: #fff5f5; border-radius: 10px;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Activity Overview:</h3>
+                            <p style="color: #4a5568; line-height: 1.7;">
+                                Students will learn about major freedom fighters through storytelling, role-playing activities, and creative projects. The lesson includes interactive elements such as hero trading cards and a "Gallery Walk" activity.
+                            </p>
+                        </div>
+                    `
+                },
+                'road-independence-plan': {
+                    title: 'Road to Independence - Lesson Plan Preview',
+                    content: `
+                        <div style="padding: 2rem; background: #f0fff4; border-radius: 10px; margin-bottom: 2rem;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Unit Overview:</h3>
+                            <p style="color: #4a5568; line-height: 1.7;">
+                                This comprehensive unit covers the political and social movements from 1947 to 1971, including the Language Movement, Six Point Movement, and the events leading to the Liberation War.
+                            </p>
+                        </div>
+                        <div style="padding: 2rem; background: #fffaf0; border-radius: 10px;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Key Components:</h3>
+                            <ul style="color: #4a5568; line-height: 1.8;">
+                                <li>Timeline construction activities</li>
+                                <li>Primary source document analysis</li>
+                                <li>Map exercises showing political changes</li>
+                                <li>Role-playing historical debates</li>
+                            </ul>
+                        </div>
+                    `
+                },
+                'war-analysis-plan': {
+                    title: 'Liberation War Analysis - Advanced Course Preview',
+                    content: `
+                        <div style="padding: 2rem; background: #f7fafc; border-radius: 10px; margin-bottom: 2rem;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Course Structure:</h3>
+                            <p style="color: #4a5568; line-height: 1.7;">
+                                Advanced analytical study examining the Liberation War from multiple perspectives including political science, international relations, military strategy, and social impact.
+                            </p>
+                        </div>
+                        <div style="padding: 2rem; background: #edf2f7; border-radius: 10px;">
+                            <h3 style="color: #2d3748; margin-bottom: 1rem;">Research Components:</h3>
+                            <ul style="color: #4a5568; line-height: 1.8;">
+                                <li>Comparative analysis with other independence movements</li>
+                                <li>Examination of international diplomatic responses</li>
+                                <li>Study of military strategies and tactics</li>
+                                <li>Analysis of post-war reconstruction challenges</li>
+                            </ul>
+                        </div>
+                    `
+                }
+            };
+
+            const resource = previewData[resourceId];
+            if (resource) {
+                title.innerHTML = `<i class="fas fa-eye"></i> ${resource.title}`;
+                content.innerHTML = resource.content;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Video play function
+        function playVideo(videoId) {
+            // In a real implementation, this would open a video player
+            alert(`Playing video: ${videoId}. In the full implementation, this would open the video player with the selected educational content.`);
+        }
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            const bookingModal = document.getElementById('booking-modal');
+            const previewModal = document.getElementById('preview-modal');
+            
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+            if (e.target === previewModal) {
+                closePreviewModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+                closePreviewModal();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe sections for animations
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+
+            console.log('Educational Resources Portal loaded successfully');
+        });
+    </script>
+</body>
+</html>
