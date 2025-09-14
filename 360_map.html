@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Liberation War Museum Virtual Gallery</title>
 
   <!-- External Libraries -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     * {
@@ -21,8 +24,8 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(rgba(248, 250, 252, 0.4), rgba(226, 232, 240, 0.4)), 
-                  url("https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/news/images/re-visiting_the_liberation_war_museum2.jpg?itok=gTGMSelW&timestamp=1502732248");
+      background: linear-gradient(rgba(248, 250, 252, 0.4), rgba(226, 232, 240, 0.4)),
+        url("https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/news/images/re-visiting_the_liberation_war_museum2.jpg?itok=gTGMSelW&timestamp=1502732248");
       background-attachment: fixed;
       background-size: cover;
       background-position: center;
@@ -39,7 +42,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       backdrop-filter: blur(20px);
     }
 
@@ -96,7 +99,7 @@
     }
 
     .nav-menu a {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
@@ -213,7 +216,7 @@
     .btn-secondary {
       background: transparent;
       color: white;
-      border: 2px solid rgba(255,255,255,0.8);
+      border: 2px solid rgba(255, 255, 255, 0.8);
     }
 
     .btn-secondary:hover {
@@ -243,8 +246,8 @@
       background: white;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
     }
@@ -285,7 +288,7 @@
       height: 500px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
       position: relative;
       background: #2d3748;
       display: flex;
@@ -341,8 +344,13 @@
     }
 
     @keyframes scan {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
     }
 
     /* Interactive Hotspots */
@@ -360,14 +368,22 @@
       justify-content: center;
       color: white;
       font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     .hotspot:hover {
@@ -439,8 +455,8 @@
     .info-panel {
       background: white;
       border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
     }
@@ -471,7 +487,7 @@
 
     .artifact:hover {
       transform: translateX(5px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .artifact.active {
@@ -534,7 +550,7 @@
     .room-card:hover {
       border-color: #d4af37;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .room-card.active {
@@ -574,7 +590,7 @@
     }
 
     .loading-spinner {
-      border: 3px solid rgba(255,255,255,0.3);
+      border: 3px solid rgba(255, 255, 255, 0.3);
       border-top: 3px solid #d4af37;
       border-radius: 50%;
       width: 40px;
@@ -584,8 +600,13 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     /* Responsive Design */
@@ -597,7 +618,8 @@
         gap: 2rem;
       }
 
-      .map-panel, .info-panel {
+      .map-panel,
+      .info-panel {
         max-height: 400px;
       }
 
@@ -648,8 +670,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .slide-in-left {
@@ -657,8 +686,15 @@
     }
 
     @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .slide-in-right {
@@ -666,8 +702,15 @@
     }
 
     @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     /* Error States */
@@ -685,8 +728,70 @@
       margin-bottom: 1rem;
       color: #c53030;
     }
+
+    /* Matterport Panel Styles */
+    .matterport-panel {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-width: 1100px;
+      margin: 0 auto 3rem auto;
+      margin-top: 5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .matterport-panel .panel-header {
+      background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .matterport-viewer {
+      padding: 2rem;
+      background: #f7fafc;
+      border-radius: 0 0 15px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Responsive for Matterport Panel */
+    @media (max-width: 1200px) {
+      .matterport-panel {
+        max-width: 100%;
+        margin: 0 1rem 2rem 1rem;
+      }
+
+      .matterport-viewer {
+        padding: 1rem;
+      }
+
+      .matterport-viewer iframe {
+        height: 400px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .matterport-panel .panel-header {
+        padding: 1rem;
+      }
+
+      .matterport-viewer {
+        padding: 0.5rem;
+      }
+
+      .matterport-viewer iframe {
+        height: 250px !important;
+      }
+    }
   </style>
 </head>
+
 <body>
   <!-- Header -->
   <header class="header">
@@ -702,10 +807,10 @@
       </div>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-    
+
         <li><a href="exhibition.html">Exhibitions</a></li>
         <li><a href="portal.html">Portal</a></li>
-        
+
       </ul>
     </div>
   </header>
@@ -715,9 +820,10 @@
     <div class="hero-content">
       <p class="hero-subtitle">Explore History in 360°</p>
       <h1>Step Into the Liberation War Museum</h1>
-      <p>Experience immersive galleries and discover artifacts from Bangladesh's 1971 Liberation War through our cutting-edge virtual tour.</p>
+      <p>Experience immersive galleries and discover artifacts from Bangladesh's 1971 Liberation War through our
+        cutting-edge virtual tour.</p>
       <div class="cta-buttons">
-        <a href="#virtual-gallery" class="btn btn-primary">
+        <a href="virtual.html" class="btn btn-primary">
           <i class="fas fa-play"></i>
           Start Virtual Tour
         </a>
@@ -788,6 +894,7 @@
     </div>
   </section>
 
+
   <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
@@ -800,25 +907,25 @@
         backgroundImage: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=1200&h=600&fit=crop",
         coordinates: [23.8103, 90.4125],
         artifacts: [
-          { 
+          {
             id: 1,
-            title: "Muktibahini Uniform", 
+            title: "Muktibahini Uniform",
             description: "Authentic uniform worn by freedom fighters during the Liberation War of 1971. This particular uniform belonged to Squadron Leader M. Hamidullah Khan.",
             year: "1971",
             category: "Military Artifacts",
             hotspotPosition: { top: '30%', left: '20%' }
           },
-          { 
+          {
             id: 2,
-            title: "Liberation War Rifle", 
+            title: "Liberation War Rifle",
             description: "Soviet-made AK-47 assault rifle used by Mukti Bahini forces. Recovered from the Sylhet sector battlefield.",
             year: "1971",
             category: "Weapons",
             hotspotPosition: { top: '50%', left: '70%' }
           },
-          { 
+          {
             id: 3,
-            title: "Freedom Fighter's Diary", 
+            title: "Freedom Fighter's Diary",
             description: "Personal diary of a freedom fighter containing daily experiences and thoughts during the war period.",
             year: "1971",
             category: "Personal Items",
@@ -833,17 +940,17 @@
         backgroundImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&h=600&fit=crop",
         coordinates: [23.8108, 90.4130],
         artifacts: [
-          { 
+          {
             id: 4,
-            title: "Proclamation of Independence", 
+            title: "Proclamation of Independence",
             description: "Original document proclaiming Bangladesh's independence, read by Major Zia-ur-Rahman on March 27, 1971.",
             year: "1971",
             category: "Official Documents",
             hotspotPosition: { top: '40%', left: '30%' }
           },
-          { 
+          {
             id: 5,
-            title: "Geneva Convention Papers", 
+            title: "Geneva Convention Papers",
             description: "International correspondence regarding the treatment of prisoners of war during the Liberation War.",
             year: "1971",
             category: "International Documents",
@@ -858,17 +965,17 @@
         backgroundImage: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1200&h=600&fit=crop",
         coordinates: [23.8113, 90.4135],
         artifacts: [
-          { 
+          {
             id: 6,
-            title: "Memorial Wall", 
+            title: "Memorial Wall",
             description: "Names of martyred freedom fighters and civilians who lost their lives during the Liberation War.",
             year: "1971",
             category: "Memorial",
             hotspotPosition: { top: '35%', left: '50%' }
           },
-          { 
+          {
             id: 7,
-            title: "Last Letters Home", 
+            title: "Last Letters Home",
             description: "Collection of final letters written by freedom fighters to their families before their sacrifice.",
             year: "1971",
             category: "Personal Documents",
@@ -883,17 +990,17 @@
         backgroundImage: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=1200&h=600&fit=crop",
         coordinates: [23.8118, 90.4140],
         artifacts: [
-          { 
+          {
             id: 8,
-            title: "Bir Protik Taramon Bibi's Medal", 
+            title: "Bir Protik Taramon Bibi's Medal",
             description: "Gallantry award given to Taramon Bibi, one of the few women to receive military honors for her role in the Liberation War.",
             year: "1973",
             category: "Awards & Medals",
             hotspotPosition: { top: '45%', left: '35%' }
           },
-          { 
+          {
             id: 9,
-            title: "Women's Medical Corps Kit", 
+            title: "Women's Medical Corps Kit",
             description: "Medical supplies and equipment used by women volunteers who served as nurses and medics during the war.",
             year: "1971",
             category: "Medical Equipment",
@@ -912,13 +1019,13 @@
       try {
         // Initialize map
         initializeMap();
-        
+
         // Initialize room navigation
         initializeRoomNavigation();
-        
+
         // Show initial room
         showRoom(currentRoomIndex);
-        
+
         console.log('Gallery initialized successfully');
       } catch (error) {
         console.error('Error initializing gallery:', error);
@@ -941,7 +1048,7 @@
           [23.8120, 90.4145],
           [23.8120, 90.4120]
         ];
-        
+
         L.rectangle(museumBounds, {
           color: '#8b4513',
           weight: 3,
@@ -951,7 +1058,7 @@
 
         // Add room markers
         updateMapMarkers();
-        
+
         console.log('Map initialized successfully');
       } catch (error) {
         console.error('Error initializing map:', error);
@@ -974,17 +1081,17 @@
     function showRoom(roomIndex) {
       const room = rooms[roomIndex];
       const panoramicContainer = document.getElementById('panoramic-container');
-      
+
       // Update background image
       panoramicContainer.style.backgroundImage = `url('${room.backgroundImage}')`;
-      
+
       // Update room info
       document.getElementById('current-room-name').textContent = room.name;
       document.getElementById('current-room-desc').textContent = room.description;
-      
+
       // Clear existing hotspots
       panoramicContainer.innerHTML = '';
-      
+
       // Add interactive hotspots
       room.artifacts.forEach((artifact, index) => {
         const hotspot = document.createElement('div');
@@ -998,22 +1105,22 @@
         hotspot.addEventListener('click', () => highlightArtifact(artifact.id));
         panoramicContainer.appendChild(hotspot);
       });
-      
+
       // Show artifacts in info panel
       showArtifacts(roomIndex);
-      
+
       console.log(`Showing room: ${room.name}`);
     }
 
     // Navigate to specific room
     function navigateToRoom(roomIndex) {
       if (roomIndex < 0 || roomIndex >= rooms.length) return;
-      
+
       currentRoomIndex = roomIndex;
       showRoom(currentRoomIndex);
       updateMapMarkers();
       updateRoomNavigation();
-      
+
       console.log(`Navigated to room ${roomIndex + 1}`);
     }
 
@@ -1021,7 +1128,7 @@
     function showArtifacts(roomIndex) {
       const list = document.getElementById("artifact-list");
       const room = rooms[roomIndex];
-      
+
       list.innerHTML = room.artifacts.map(artifact => `
         <div class="artifact" id="artifact-${artifact.id}" onclick="highlightArtifact(${artifact.id})">
           <h4>${artifact.title}</h4>
@@ -1040,21 +1147,21 @@
       document.querySelectorAll('.artifact').forEach(el => {
         el.classList.remove('active');
       });
-      
+
       // Highlight selected artifact
       const artifactElement = document.getElementById(`artifact-${artifactId}`);
       if (artifactElement) {
         artifactElement.classList.add('active');
         artifactElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-      
+
       console.log(`Highlighted artifact ${artifactId}`);
     }
 
     // Update map markers
     function updateMapMarkers() {
       if (!map) return;
-      
+
       // Remove existing markers
       currentMarkers.forEach(marker => map.removeLayer(marker));
       currentMarkers = [];
@@ -1068,7 +1175,7 @@
             iconSize: [30, 30]
           })
         }).addTo(map);
-        
+
         marker.bindPopup(`
           <div style="text-align: center; padding: 10px;">
             <h4 style="margin: 0 0 5px; color: #2d3748;">${room.name}</h4>
@@ -1076,11 +1183,11 @@
             <button onclick="navigateToRoom(${idx})" style="margin-top: 10px; padding: 5px 15px; background: #8b4513; color: white; border: none; border-radius: 4px; cursor: pointer;">Visit Room</button>
           </div>
         `);
-        
+
         marker.on('click', () => {
           navigateToRoom(idx);
         });
-        
+
         currentMarkers.push(marker);
       });
     }
@@ -1121,7 +1228,7 @@
     });
 
     // Initialize gallery when page loads
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       setTimeout(initializeGallery, 500); // Small delay to ensure DOM is ready
     });
 
@@ -1149,8 +1256,8 @@
     });
 
     // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-      switch(e.key) {
+    document.addEventListener('keydown', function (e) {
+      switch (e.key) {
         case 'ArrowLeft':
           document.getElementById('prev-room').click();
           break;
@@ -1167,4 +1274,5 @@
     window.navigateToRoom = navigateToRoom;
   </script>
 </body>
+
 </html>
