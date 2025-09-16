@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign Up — Liberation War Museum</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --text: #1a202c;
+            --muted: #475569;
+            --accent: #d4af37;
+            --card-bg: rgba(255, 255, 255, 0.95)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial;
+            color: var(--text);
+            background: linear-gradient(rgba(248, 250, 252, 0.7), rgba(226, 232, 240, 0.7)),
+                url("https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2020/12/15/jadu_ghor_7-min.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 1.5rem;
+            border: 1px solid rgba(10, 10, 10, 0.04);
+            box-shadow: 0 20px 60px rgba(2, 6, 23, 0.18);
+            opacity: 0;
+            transform: translateY(10px) scale(.995);
+            transition: opacity .42s cubic-bezier(.2, .9, .2, 1), transform .42s cubic-bezier(.2, .9, .2, 1);
+            font-size: 1.05rem;
+            line-height: 1.5
+        }
+
+        .card.enter {
+            opacity: 1;
+            transform: none;
+        }
+
+        .brand {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem
+        }
+
+        .logo-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a202c;
+            font-weight: 800;
+            font-size: 1.4rem
+        }
+
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin: 0
+        }
+
+        .brand p {
+            font-size: .95rem;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: .4rem;
+            color: var(--text)
+        }
+
+        input,
+        select {
+            padding: 1rem .9rem;
+            border-radius: 10px;
+            border: 1px solid rgba(10, 10, 10, 0.06);
+            font-size: 1rem;
+            background: #fff
+        }
+
+        .full {
+            grid-column: 1/-1
+        }
+
+        .actions {
+            display: flex;
+            gap: .6rem;
+            justify-content: flex-end;
+            margin-top: 1rem
+        }
+
+        .btn {
+            padding: .75rem 1.05rem;
+            border-radius: 10px;
+            border: 1px solid rgba(10, 10, 10, 0.06);
+            cursor: pointer;
+            background: white;
+            font-weight: 700;
+            font-size: 1rem
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #fff;
+            border: transparent
+        }
+
+        @media (max-width:700px) {
+            .form-grid {
+                grid-template-columns: 1fr
+            }
+
+            .card {
+                padding: 1rem;
+                font-size: 1rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" role="main" aria-labelledby="signup-title">
+        <div class="brand">
+            <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+                <h1 id="signup-title">Create an Account</h1>
+                <p>Sign up as a user to access public features</p>
+            </div>
+        </div>
+
+        <form id="signup-form" autocomplete="off">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input id="full-name" name="fullName" type="text" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text" required />
+                </div>
+
+                <div class="form-group full">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input id="confirm-password" name="confirmPassword" type="password" required />
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="button" class="btn" id="back-to-login">Back</button>
+                <button type="submit" class="btn primary">Sign up</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        (function () {
+            const card = document.querySelector('.card');
+            requestAnimationFrame(() => setTimeout(() => card.classList.add('enter'), 30));
+
+            document.getElementById('back-to-login').addEventListener('click', () => {
+                window.location.href = 'login.html';
+            });
+
+            document.getElementById('signup-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('full-name').value.trim();
+                const user = document.getElementById('username').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const pass = document.getElementById('password').value;
+                const conf = document.getElementById('confirm-password').value;
+
+                if (!name) { alert('Please enter your full name.'); return; }
+                if (!user) { alert('Please choose a username.'); return; }
+                if (!email) { alert('Please enter your email.'); return; }
+                if (!pass) { alert('Please enter a password.'); return; }
+                if (pass !== conf) { alert('Passwords do not match.'); return; }
+
+                // TODO: replace with real signup flow
+                console.log('Sign up payload:', { name, user, email });
+                alert('Account created (demo). You will be taken to the site.');
+                window.location.href = 'index.html';
+            });
+        })();
+    </script>
+</body>

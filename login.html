@@ -242,73 +242,102 @@
             <div class="actions">
                 <button type="button" class="btn" id="cancel">Cancel</button>
                 <button type="submit" class="btn primary" id="login-btn">Login</button>
+
+                <button type="button" class="btn" id="signup-btn" style="display:none">Sign up</button>
             </div>
+
+
         </form>
     </div>
 
-    <script>
-        (function () {
-            const roleUserBtn = document.getElementById('role-user');
-            const roleAdminBtn = document.getElementById('role-admin');
-            const roleButtons = [roleUserBtn, roleAdminBtn];
-            const currentRoleText = document.getElementById('current-role');
-            let role = 'user'; // default
 
-            function setRole(r) {
-                role = r;
-                roleButtons.forEach(b => {
-                    const active = b.dataset.role === r;
-                    b.classList.toggle('active', active);
-                    b.setAttribute('aria-selected', active ? 'true' : 'false');
-                });
-                currentRoleText.textContent = r === 'admin' ? 'Admin' : 'User';
-                document.getElementById('label-username').textContent = r === 'admin' ? 'Admin Username' : 'Username or Email';
-                document.getElementById('username').placeholder = r === 'admin' ? 'admin' : 'you@example.com';
-                document.getElementById('password').placeholder = 'password';
+
+    <script>
+    (function () {
+        const roleUserBtn = document.getElementById('role-user');
+        const roleAdminBtn = document.getElementById('role-admin');
+        const roleButtons = [roleUserBtn, roleAdminBtn];
+        const currentRoleText = document.getElementById('current-role');
+        let role = 'user'; // default
+
+        function setRole(r) {
+            role = r;
+            roleButtons.forEach(b => {
+                const active = b.dataset.role === r;
+                b.classList.toggle('active', active);
+                b.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            currentRoleText.textContent = r === 'admin' ? 'Admin' : 'User';
+            document.getElementById('label-username').textContent =
+                r === 'admin' ? 'Admin Username' : 'Username or Email';
+            document.getElementById('username').placeholder =
+                r === 'admin' ? 'admin' : 'you@example.com';
+            document.getElementById('password').placeholder = 'password';
+
+            const signupBtn = document.getElementById('signup-btn');
+            if (signupBtn) signupBtn.style.display = r === 'admin' ? 'none' : '';
+        }
+
+        roleUserBtn.addEventListener('click', () => setRole('user'));
+        roleAdminBtn.addEventListener('click', () => setRole('admin'));
+
+        const signupBtn = document.getElementById('signup-btn');
+        if (signupBtn) {
+            signupBtn.addEventListener('click', () => {
+                window.location.href = 'signup.html';
+            });
+        }
+
+        // Cancel simply returns to index
+        document.getElementById('cancel').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // Login handler (no backend): route based on selected role
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value.trim();
+
+            if (!u) {
+                alert('Please enter username.');
+                document.getElementById('username').focus();
+                return;
+            }
+            if (!p) {
+                alert('Please enter password.');
+                document.getElementById('password').focus();
+                return;
             }
 
-            roleUserBtn.addEventListener('click', () => setRole('user'));
-            roleAdminBtn.addEventListener('click', () => setRole('admin'));
-
-            // Cancel simply returns to index
-            document.getElementById('cancel').addEventListener('click', () => {
+            if (role === 'admin') {
+                window.location.href = 'admin.html';
+            } else {
                 window.location.href = 'index.html';
-            });
+            }
+        });
 
-            // Login handler (no backend): route based on selected role
-            document.getElementById('login-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                const u = document.getElementById('username').value.trim();
-                const p = document.getElementById('password').value.trim();
+        // initialize role state
+        setRole(role);
 
-                if (!u) { alert('Please enter username.'); document.getElementById('username').focus(); return; }
-                if (!p) { alert('Please enter password.'); document.getElementById('password').focus(); return; }
+        // Fade-in animation: add enter class after DOM ready
+        document.addEventListener('DOMContentLoaded', function () {
+            const card = document.querySelector('.card');
+            // small delay so transition is noticeable
+            requestAnimationFrame(() =>
+                setTimeout(() => card.classList.add('enter'), 30)
+            );
+        });
 
-                if (role === 'admin') {
-                    window.location.href = 'admin.html';
-                } else {
-                    window.location.href = 'index.html';
-                }
-            });
+        // keyboard shortcut: toggle role with Ctrl/Cmd+M (optional)
+        document.addEventListener('keydown', (ev) => {
+            if (ev.key.toLowerCase() === 'm' && (ev.ctrlKey || ev.metaKey)) {
+                setRole(role === 'admin' ? 'user' : 'admin');
+            }
+        });
+    })();
+</script>
 
-            // initialize role state
-            setRole(role);
-
-            // Fade-in animation: add enter class after DOM ready
-            document.addEventListener('DOMContentLoaded', function () {
-                const card = document.querySelector('.card');
-                // small delay so transition is noticeable
-                requestAnimationFrame(() => setTimeout(() => card.classList.add('enter'), 30));
-            });
-
-            // keyboard shortcut: toggle role with Ctrl/Cmd+M (optional)
-            document.addEventListener('keydown', (ev) => {
-                if (ev.key.toLowerCase() === 'm' && (ev.ctrlKey || ev.metaKey)) {
-                    setRole(role === 'admin' ? 'user' : 'admin');
-                }
-            });
-        })();
-    </script>
 </body>
 
 </html>
