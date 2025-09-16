@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Liberation War Museum</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Reuse index.html visual language (condensed) */
+        :root {
+            --text: #1a202c;
+            --muted: #475569;
+            --accent: #d4af37;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial;
+            color: var(--text);
+            background: linear-gradient(rgba(248, 250, 252, 0.7), rgba(226, 232, 240, 0.7)),
+                url("https://www.tbsnews.net/sites/default/files/styles/infograph/public/images/2020/12/15/jadu_ghor_7-min.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 620px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(2, 6, 23, 0.18);
+            padding: 1.5rem;
+            border: 1px solid rgba(10, 10, 10, 0.04);
+            /* start hidden for entry animation */
+            opacity: 0;
+            transform: translateY(10px) scale(.995);
+            transition: opacity .42s cubic-bezier(.2, .9, .2, 1), transform .42s cubic-bezier(.2, .9, .2, 1);
+            /* larger base text inside container */
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        /* visible state after fade-in */
+        .card.enter {
+            opacity: 1;
+            transform: none;
+        }
+
+        .brand {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.1rem
+        }
+
+        .logo-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a202c;
+            font-weight: 800;
+            font-size: 1.4rem
+        }
+
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin: 0
+        }
+
+        .brand p {
+            font-size: .95rem;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .role-toggle {
+            display: flex;
+            gap: .6rem;
+            margin: 1.1rem 0
+        }
+
+        .role-btn {
+            padding: .6rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(10, 10, 10, 0.06);
+            background: transparent;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .role-btn.active {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08)
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: .4rem;
+            color: var(--text)
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 1rem .9rem;
+            border-radius: 10px;
+            border: 1px solid rgba(10, 10, 10, 0.06);
+            font-size: 1rem;
+            background: #fff
+        }
+
+        .actions {
+            display: flex;
+            gap: .6rem;
+            justify-content: flex-end;
+            margin-top: 1rem
+        }
+
+        .btn {
+            padding: .75rem 1.05rem;
+            border-radius: 10px;
+            border: 1px solid rgba(10, 10, 10, 0.06);
+            cursor: pointer;
+            background: white;
+            font-weight: 700;
+            font-size: 1rem
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #fff;
+            border: transparent
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: .95rem;
+            margin-top: .6rem;
+            text-align: left
+        }
+
+        @media (max-width:520px) {
+            .card {
+                padding: 1rem;
+                font-size: 1rem
+            }
+
+            .brand h1 {
+                font-size: 1.12rem
+            }
+
+            .logo-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 1.1rem
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+                padding: .85rem
+            }
+
+            .btn {
+                padding: .7rem .9rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" role="main" aria-labelledby="login-title">
+        <div class="brand">
+            <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+                <h1 id="login-title">Liberation War Museum</h1>
+                <p>Sign in to continue</p>
+            </div>
+        </div>
+
+        <div class="role-toggle" role="tablist" aria-label="Select login type">
+            <button class="role-btn active" data-role="user" id="role-user" role="tab"
+                aria-selected="true">User</button>
+            <button class="role-btn" data-role="admin" id="role-admin" role="tab" aria-selected="false">Admin</button>
+        </div>
+
+        <form id="login-form" autocomplete="off">
+            <div class="form-group">
+                <label id="label-username" for="username">Username or Email</label>
+                <input id="username" name="username" type="text" required />
+            </div>
+
+            <div class="form-group">
+                <label id="label-password" for="password">Password</label>
+                <input id="password" name="password" type="password" required />
+            </div>
+
+            <div class="muted" id="hint">Logging in as <strong id="current-role">User</strong> will take you to the
+                public site.</div>
+
+            <div class="actions">
+                <button type="button" class="btn" id="cancel">Cancel</button>
+                <button type="submit" class="btn primary" id="login-btn">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        (function () {
+            const roleUserBtn = document.getElementById('role-user');
+            const roleAdminBtn = document.getElementById('role-admin');
+            const roleButtons = [roleUserBtn, roleAdminBtn];
+            const currentRoleText = document.getElementById('current-role');
+            let role = 'user'; // default
+
+            function setRole(r) {
+                role = r;
+                roleButtons.forEach(b => {
+                    const active = b.dataset.role === r;
+                    b.classList.toggle('active', active);
+                    b.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                currentRoleText.textContent = r === 'admin' ? 'Admin' : 'User';
+                document.getElementById('label-username').textContent = r === 'admin' ? 'Admin Username' : 'Username or Email';
+                document.getElementById('username').placeholder = r === 'admin' ? 'admin' : 'you@example.com';
+                document.getElementById('password').placeholder = 'password';
+            }
+
+            roleUserBtn.addEventListener('click', () => setRole('user'));
+            roleAdminBtn.addEventListener('click', () => setRole('admin'));
+
+            // Cancel simply returns to index
+            document.getElementById('cancel').addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+
+            // Login handler (no backend): route based on selected role
+            document.getElementById('login-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const u = document.getElementById('username').value.trim();
+                const p = document.getElementById('password').value.trim();
+
+                if (!u) { alert('Please enter username.'); document.getElementById('username').focus(); return; }
+                if (!p) { alert('Please enter password.'); document.getElementById('password').focus(); return; }
+
+                if (role === 'admin') {
+                    window.location.href = 'admin.html';
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // initialize role state
+            setRole(role);
+
+            // Fade-in animation: add enter class after DOM ready
+            document.addEventListener('DOMContentLoaded', function () {
+                const card = document.querySelector('.card');
+                // small delay so transition is noticeable
+                requestAnimationFrame(() => setTimeout(() => card.classList.add('enter'), 30));
+            });
+
+            // keyboard shortcut: toggle role with Ctrl/Cmd+M (optional)
+            document.addEventListener('keydown', (ev) => {
+                if (ev.key.toLowerCase() === 'm' && (ev.ctrlKey || ev.metaKey)) {
+                    setRole(role === 'admin' ? 'user' : 'admin');
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
