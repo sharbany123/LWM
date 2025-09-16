@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee Structure | Liberation War Museum Bangladesh</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(rgba(248, 250, 252, 0.7), rgba(226, 232, 240, 0.5)), 
+                        url("https://www.mirakhter.net/wp-content/uploads/2018/05/Capture.png");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #1a202c;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1a202c;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 32, 44, 0.85) 0%, rgba(45, 55, 72, 0.6) 100%);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #8b4513 0%, #d4af37 100%);
+            border-radius: 2px;
+        }
+
+        /* Interactive Services Section */
+        .services-section {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a202c;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            font-weight: 600;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-btn {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .service-btn:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            padding: 2rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2d3748;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .close {
+            color: #64748b;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #8b4513;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: #1a202c;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Report Section */
+        .report-section {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .report-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .report-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .report-option:hover {
+            background: #edf2f7;
+        }
+
+        .report-option input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .generate-btn:hover {
+            background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+            transform: translateY(-2px);
+        }
+
+        /* Statistics Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #d4af37, #8b4513);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.1));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b4513;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Divisions Grid */
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .division-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .division-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #d4af37, #8b4513);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .division-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .division-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .division-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a202c;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .division-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .division-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .division-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .division-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .division-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .division-stat {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 12px;
+        }
+
+        .division-stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.2rem;
+        }
+
+        .division-stat .label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .chairman-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.05));
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .chairman-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chairman-details h5 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .chairman-details p {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Interactive Map Section */
+        .map-section {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .map-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .map-visual {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            border-radius: 15px;
+            padding: 2rem;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px dashed #cbd5e1;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: #64748b;
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .map-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-dhaka { background: #d4af37; }
+        .legend-chattogram { background: #8b4513; }
+        .legend-khulna { background: #a0522d; }
+        .legend-rajshahi { background: #cd853f; }
+
+        /* Contact Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .contact-card h4 {
+            font-family: 'Playfair Display', serif;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-card i {
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p {
+            color: #64748b;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-card a {
+            color: #8b4513;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: #d4af37;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.2rem;
+            color: #d4af37;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .footer-section a, .footer-section p {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.6rem;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .map-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .divisions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .divisions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .division-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 5% auto;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animation Effects */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-monument"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Liberation War Museum</h1>
+                    <p>Committee Structure</p>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#collections">Collections</a></li>
+                    <li><a href="#committees" class="active">Committees</a></li>
+                    <li><a href="index.html#events">Events</a></li>
+                    <li><a href="index.html#visit">Visit</a></li>
+                </ul>
+            </nav>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Nationwide Organization</p>
+            <h1>Committee Structure</h1>
+            <p>Discover our comprehensive network of committees across Bangladesh, dedicated to preserving and promoting the legacy of our Liberation War through organized regional efforts and community engagement.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Services Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Committee Services</h2>
+            
+            <div class="services-section fade-in">
+                <div class="services-grid">
+                    <div class="service-card" onclick="openModal('membershipModal')">
+                        <div class="service-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Apply for Membership</h3>
+                        <p>Join our network of dedicated volunteers and contribute to preserving Liberation War heritage across Bangladesh.</p>
+                        <button class="service-btn">Apply Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openModal('feedbackModal')">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Give Feedback</h3>
+                        <p>Share your thoughts, suggestions, and experiences to help us improve our committee operations and services.</p>
+                        <button class="service-btn">Provide Feedback</button>
+                    </div>
+
+                    <div class="service-card" onclick="openModal('emailModal')">
+                        <div class="service-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p>Get in touch with our committee coordinators for inquiries, support, or collaboration opportunities.</p>
+                        <button class="service-btn">Send Email</button>
+                    </div>
+
+                    <div class="service-card" onclick="openModal('reportModal')">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Generate Reports</h3>
+                        <p>Access comprehensive reports on committee activities, membership statistics, and regional performance metrics.</p>
+                        <button class="service-btn">Generate Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid slide-up">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Divisions</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="stat-number">64</div>
+                    <div class="stat-label">Districts</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-number">492</div>
+                    <div class="stat-label">Thanas/Upazilas</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number">2,847</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Division Committees -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Division Committees</h2>
+            
+            <div class="divisions-grid fade-in">
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">ঢা</div>
+                        <div>
+                            <h3>Dhaka Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1971</span>
+                                <span><i class="fas fa-map"></i> 13 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Covering the capital region including Dhaka, Gazipur, Manikganj, Tangail, and surrounding areas. This division oversees the central coordination of museum activities and serves as the administrative hub.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">RA</div>
+                        <div class="chairman-details">
+                            <h5>Prof. Dr. Rahman Ahmed</h5>
+                            <p>Division Chairman • Since 2020</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">13</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">156</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">892</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">চট্ট</div>
+                        <div>
+                            <h3>Chattogram Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1971</span>
+                                <span><i class="fas fa-map"></i> 11 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Encompasses the southeastern region including Chattogram port city, Cox's Bazar, and the Chittagong Hill Tracts. This division focuses on coastal and hill region heritage preservation.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">NI</div>
+                        <div class="chairman-details">
+                            <h5>Major (Retd.) Nurul Islam</h5>
+                            <p>Division Chairman • Since 2019</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">11</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">119</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">743</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">খুল</div>
+                        <div>
+                            <h3>Khulna Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1971</span>
+                                <span><i class="fas fa-map"></i> 10 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Covers the southwestern region including the Sundarbans area, Jessore, and historic Kushtia. This division specializes in riverine and mangrove heritage documentation.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">FK</div>
+                        <div class="chairman-details">
+                            <h5>Dr. Fatima Khatun</h5>
+                            <p>Division Chairman • Since 2021</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">10</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">59</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">521</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">রাজ</div>
+                        <div>
+                            <h3>Rajshahi Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1971</span>
+                                <span><i class="fas fa-map"></i> 8 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Covers the northwestern region known for its rich archaeological heritage, including Paharpur and Mahasthangarh. This division focuses on ancient and liberation war history integration.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">KH</div>
+                        <div class="chairman-details">
+                            <h5>Squadron Leader (Retd.) Kamal Hossain</h5>
+                            <p>Division Chairman • Since 2018</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">8</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">70</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">496</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">সিল</div>
+                        <div>
+                            <h3>Sylhet Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1972</span>
+                                <span><i class="fas fa-map"></i> 4 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Encompasses the northeastern tea garden region with unique cultural heritage. This division focuses on the liberation war history of the border areas and tea estate communities.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">MC</div>
+                        <div class="chairman-details">
+                            <h5>Dr. Monika Chakraborty</h5>
+                            <p>Division Chairman • Since 2022</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">4</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">40</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">284</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">বরি</div>
+                        <div>
+                            <h3>Barisal Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 1972</span>
+                                <span><i class="fas fa-map"></i> 6 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Covers the south-central river delta region known as the "Venice of Bengal". This division specializes in river-based liberation war operations and coastal heritage.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">AR</div>
+                        <div class="chairman-details">
+                            <h5>Captain (Retd.) Abdul Rahman</h5>
+                            <p>Division Chairman • Since 2020</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">6</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">42</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">312</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">রং</div>
+                        <div>
+                            <h3>Rangpur Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 2010</span>
+                                <span><i class="fas fa-map"></i> 8 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>Covers the northern region with rich agricultural heritage and significant liberation war history. This division focuses on rural liberation war narratives and local hero documentation.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">SB</div>
+                        <div class="chairman-details">
+                            <h5>Prof. Shahida Begum</h5>
+                            <p>Division Chairman • Since 2021</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">8</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">58</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">389</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="division-card">
+                    <div class="division-header">
+                        <div class="division-icon">ময়</div>
+                        <div>
+                            <h3>Mymensingh Division</h3>
+                            <div class="division-meta">
+                                <span><i class="fas fa-calendar"></i> Est. 2015</span>
+                                <span><i class="fas fa-map"></i> 4 Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>The newest division covering the north-central region with rich folk heritage and liberation war history. This division focuses on cultural integration and folk tradition preservation.</p>
+                    
+                    <div class="chairman-info">
+                        <div class="chairman-avatar">MH</div>
+                        <div class="chairman-details">
+                            <h5>Dr. Mizanur Haque</h5>
+                            <p>Division Chairman • Since 2022</p>
+                        </div>
+                    </div>
+                    
+                    <div class="division-stats">
+                        <div class="division-stat">
+                            <div class="number">4</div>
+                            <div class="label">Districts</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">34</div>
+                            <div class="label">Thanas</div>
+                        </div>
+                        <div class="division-stat">
+                            <div class="number">245</div>
+                            <div class="label">Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Regional Distribution</h2>
+            
+            <div class="map-section fade-in">
+                <div class="map-container">
+                    <div class="map-visual">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map"></i>
+                            <h3 style="color: #2d3748; margin-bottom: 0.5rem;">Interactive Bangladesh Map</h3>
+                            <p>Committee locations and coverage areas would be displayed here with interactive features showing division boundaries, district centers, and committee headquarters.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="map-legend">
+                        <h4 style="color: #2d3748; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Division Legend</h4>
+                        
+                        <div class="legend-item">
+                            <div class="legend-color legend-dhaka"></div>
+                            <div>
+                                <strong>Dhaka Division</strong>
+                                <br><small>Central Administrative Hub</small>
+                            </div>
+                        </div>
+                        
+                        <div class="legend-item">
+                            <div class="legend-color legend-chattogram"></div>
+                            <div>
+                                <strong>Chattogram Division</strong>
+                                <br><small>Port & Hills Region</small>
+                            </div>
+                        </div>
+                        
+                        <div class="legend-item">
+                            <div class="legend-color legend-khulna"></div>
+                            <div>
+                                <strong>Khulna Division</strong>
+                                <br><small>Southwest & Sundarbans</small>
+                            </div>
+                        </div>
+                        
+                        <div class="legend-item">
+                            <div class="legend-color legend-rajshahi"></div>
+                            <div>
+                                <strong>Rajshahi Division</strong>
+                                <br><small>Northwest Region</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Committee Contact Information</h2>
+            
+            <div class="contact-section slide-up">
+                <div class="contact-card">
+                    <h4><i class="fas fa-building"></i> National Headquarters</h4>
+                    <p><strong>Address:</strong> Agargaon, Dhaka-1207</p>
+                    <p><strong>Phone:</strong> <a href="tel:+8808116553">+880-2-8116553</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:national@lwmcommittee.org">national@lwmcommittee.org</a></p>
+                    <p><strong>Chairman:</strong> Prof. Dr. Akbar Ali Khan</p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4><i class="fas fa-envelope"></i> Regional Coordination</h4>
+                    <p><strong>Dhaka Division:</strong> <a href="mailto:dhaka@lwmcommittee.org">dhaka@lwmcommittee.org</a></p>
+                    <p><strong>Chattogram Division:</strong> <a href="mailto:chattogram@lwmcommittee.org">chattogram@lwmcommittee.org</a></p>
+                    <p><strong>Khulna Division:</strong> <a href="mailto:khulna@lwmcommittee.org">khulna@lwmcommittee.org</a></p>
+                    <p><strong>Other Divisions:</strong> <a href="mailto:regional@lwmcommittee.org">regional@lwmcommittee.org</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h4><i class="fas fa-users"></i> Membership Inquiry</h4>
+                    <p><strong>Join Committee:</strong> <a href="mailto:membership@lwmcommittee.org">membership@lwmcommittee.org</a></p>
+                    <p><strong>Volunteer Programs:</strong> <a href="mailto:volunteer@lwmcommittee.org">volunteer@lwmcommittee.org</a></p>
+                    <p><strong>Partnership:</strong> <a href="mailto:partnership@lwmcommittee.org">partnership@lwmcommittee.org</a></p>
+                    <p><strong>General Inquiry:</strong> <a href="mailto:info@lwmcommittee.org">info@lwmcommittee.org</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Membership Modal -->
+    <div id="membershipModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Apply for Membership</h2>
+                <span class="close" onclick="closeModal('membershipModal')">&times;</span>
+            </div>
+            <form id="membershipForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" min="18" max="100">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="division">Preferred Division *</label>
+                        <select id="division" name="division" required>
+                            <option value="">Select Division</option>
+                            <option value="dhaka">Dhaka Division</option>
+                            <option value="chattogram">Chattogram Division</option>
+                            <option value="khulna">Khulna Division</option>
+                            <option value="rajshahi">Rajshahi Division</option>
+                            <option value="sylhet">Sylhet Division</option>
+                            <option value="barisal">Barisal Division</option>
+                            <option value="rangpur">Rangpur Division</option>
+                            <option value="mymensingh">Mymensingh Division</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience Level</label>
+                        <select id="experience" name="experience">
+                            <option value="">Select Experience</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="expert">Expert</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Full Address *</label>
+                    <textarea id="address" name="address" required placeholder="Enter your complete address..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivation">Why do you want to join? *</label>
+                    <textarea id="motivation" name="motivation" required placeholder="Tell us about your motivation and interest in Liberation War heritage..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+                <div id="membershipSuccess" class="success-message">
+                    Thank you for your application! We will contact you within 7 working days.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Give Feedback</h2>
+                <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+            </div>
+            <form id="feedbackForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="feedbackName">Your Name</label>
+                        <input type="text" id="feedbackName" name="feedbackName">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackEmail">Email Address</label>
+                        <input type="email" id="feedbackEmail" name="feedbackEmail">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackType">Feedback Type *</label>
+                    <select id="feedbackType" name="feedbackType" required>
+                        <option value="">Select Type</option>
+                        <option value="general">General Feedback</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="appreciation">Appreciation</option>
+                        <option value="technical">Technical Issue</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackSubject">Subject *</label>
+                    <input type="text" id="feedbackSubject" name="feedbackSubject" required placeholder="Brief subject of your feedback...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackMessage">Your Feedback *</label>
+                    <textarea id="feedbackMessage" name="feedbackMessage" required placeholder="Please share your detailed feedback, suggestions, or concerns..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rating">Overall Rating</label>
+                    <select id="rating" name="rating">
+                        <option value="">Select Rating</option>
+                        <option value="5">Excellent (5/5)</option>
+                        <option value="4">Good (4/5)</option>
+                        <option value="3">Average (3/5)</option>
+                        <option value="2">Poor (2/5)</option>
+                        <option value="1">Very Poor (1/5)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+                <div id="feedbackSuccess" class="success-message">
+                    Thank you for your feedback! We value your input and will review it carefully.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Email Us</h2>
+                <span class="close" onclick="closeModal('emailModal')">&times;</span>
+            </div>
+            <form id="emailForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="senderName">Your Name *</label>
+                        <input type="text" id="senderName" name="senderName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senderEmail">Your Email *</label>
+                        <input type="email" id="senderEmail" name="senderEmail" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipient">Send To *</label>
+                    <select id="recipient" name="recipient" required>
+                        <option value="">Select Department</option>
+                        <option value="national@lwmcommittee.org">National Headquarters</option>
+                        <option value="dhaka@lwmcommittee.org">Dhaka Division</option>
+                        <option value="chattogram@lwmcommittee.org">Chattogram Division</option>
+                        <option value="khulna@lwmcommittee.org">Khulna Division</option>
+                        <option value="rajshahi@lwmcommittee.org">Rajshahi Division</option>
+                        <option value="membership@lwmcommittee.org">Membership Department</option>
+                        <option value="volunteer@lwmcommittee.org">Volunteer Programs</option>
+                        <option value="info@lwmcommittee.org">General Information</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailSubject">Subject *</label>
+                    <input type="text" id="emailSubject" name="emailSubject" required placeholder="Enter email subject...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="emailMessage">Message *</label>
+                    <textarea id="emailMessage" name="emailMessage" required placeholder="Type your message here..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="priority">Priority Level</label>
+                    <select id="priority" name="priority">
+                        <option value="normal">Normal</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Email</button>
+                <div id="emailSuccess" class="success-message">
+                    Your email has been sent successfully! We'll respond within 2-3 business days.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Generate Reports</h2>
+                <span class="close" onclick="closeModal('reportModal')">&times;</span>
+            </div>
+            <div class="report-section">
+                <h3 style="color: #2d3748; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Select Report Parameters</h3>
+                
+                <div class="form-group">
+                    <label for="reportDivision">Division</label>
+                    <select id="reportDivision" name="reportDivision">
+                        <option value="all">All Divisions</option>
+                        <option value="dhaka">Dhaka Division</option>
+                        <option value="chattogram">Chattogram Division</option>
+                        <option value="khulna">Khulna Division</option>
+                        <option value="rajshahi">Rajshahi Division</option>
+                        <option value="sylhet">Sylhet Division</option>
+                        <option value="barisal">Barisal Division</option>
+                        <option value="rangpur">Rangpur Division</option>
+                        <option value="mymensingh">Mymensingh Division</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reportFrom">From Date</label>
+                        <input type="date" id="reportFrom" name="reportFrom">
+                    </div>
+                    <div class="form-group">
+                        <label for="reportTo">To Date</label>
+                        <input type="date" id="reportTo" name="reportTo">
+                    </div>
+                </div>
+                
+                <h4 style="color: #2d3748; margin: 1.5rem 0 1rem; font-family: 'Playfair Display', serif;">Report Types</h4>
+                
+                <div class="report-options">
+                    <div class="report-option">
+                        <input type="checkbox" id="membershipReport" name="reportTypes" value="membership">
+                        <label for="membershipReport">Membership Statistics</label>
+                    </div>
+                    <div class="report-option">
+                        <input type="checkbox" id="activityReport" name="reportTypes" value="activity">
+                        <label for="activityReport">Committee Activities</label>
+                    </div>
+                    <div class="report-option">
+                        <input type="checkbox" id="eventReport" name="reportTypes" value="events">
+                        <label for="eventReport">Events Summary</label>
+                    </div>
+                    <div class="report-option">
+                        <input type="checkbox" id="financialReport" name="reportTypes" value="financial">
+                        <label for="financialReport">Financial Overview</label>
+                    </div>
+                    <div class="report-option">
+                        <input type="checkbox" id="performanceReport" name="reportTypes" value="performance">
+                        <label for="performanceReport">Performance Metrics</label>
+                    </div>
+                    <div class="report-option">
+                        <input type="checkbox" id="volunteerReport" name="reportTypes" value="volunteer">
+                        <label for="volunteerReport">Volunteer Participation</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reportFormat">Output Format</label>
+                    <select id="reportFormat" name="reportFormat">
+                        <option value="pdf">PDF Document</option>
+                        <option value="excel">Excel Spreadsheet</option>
+                        <option value="csv">CSV File</option>
+                        <option value="html">HTML Report</option>
+                    </select>
+                </div>
+                
+                <button type="button" class="generate-btn" onclick="generateReport()">
+                    <i class="fas fa-download"></i>
+                    Generate Report
+                </button>
+                
+                <div id="reportSuccess" class="success-message">
+                    Report generated successfully! Download will begin shortly.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liberation War Museum</h3>
+                <p>Dedicated to preserving the memory and legacy of Bangladesh's Liberation War of 1971.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Agargaon, Dhaka-1207</p>
+                <p><i class="fas fa-phone"></i> +880-2-8116553</p>
+            </div>
+            <div class="footer-section">
+                <h3>Committee Network</h3>
+                <a href="#divisions">Division Committees</a>
+                <a href="#districts">District Committees</a>
+                <a href="#thanas">Thana Committees</a>
+                <a href="#membership">Membership</a>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Museum Home</a>
+                <a href="index.html#collections">Collections</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#visit">Visit Information</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Liberation War Museum Committee Network. Preserving our heritage through organized community efforts.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset success messages
+            const successMessages = document.querySelectorAll('.success-message');
+            successMessages.forEach(msg => msg.style.display = 'none');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        }
+
+        // Form submissions
+        document.getElementById('membershipForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                document.getElementById('membershipSuccess').style.display = 'block';
+                this.reset();
+            }, 1000);
+        });
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            setTimeout(() => {
+                document.getElementById('feedbackSuccess').style.display = 'block';
+                this.reset();
+            }, 1000);
+        });
+
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            setTimeout(() => {
+                document.getElementById('emailSuccess').style.display = 'block';
+                this.reset();
+            }, 1000);
+        });
+
+        // Report generation
+        function generateReport() {
+            const division = document.getElementById('reportDivision').value;
+            const fromDate = document.getElementById('reportFrom').value;
+            const toDate = document.getElementById('reportTo').value;
+            const format = document.getElementById('reportFormat').value;
+            const selectedTypes = Array.from(document.querySelectorAll('input[name="reportTypes"]:checked'))
+                                     .map(cb => cb.value);
+
+            if (selectedTypes.length === 0) {
+                alert('Please select at least one report type.');
+                return;
+            }
+
+            // Simulate report generation
+            setTimeout(() => {
+                document.getElementById('reportSuccess').style.display = 'block';
+                
+                // Simulate file download
+                const filename = `lwm_committee_report_${Date.now()}.${format}`;
+                const reportData = {
+                    division: division,
+                    dateRange: { from: fromDate, to: toDate },
+                    reportTypes: selectedTypes,
+                    format: format,
+                    generated: new Date().toISOString()
+                };
+                
+                // Create and trigger download (simulated)
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(reportData, null, 2));
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.setAttribute("href", dataStr);
+                downloadAnchor.setAttribute("download", filename);
+                downloadAnchor.click();
+                
+            }, 2000);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('fade-in')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                    if (entry.target.classList.contains('slide-up')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animations
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Statistics counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 1000;
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.innerText.replace(/[^\d]/g, ''));
+                const increment = target / speed;
+                let count = 0;
+
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = Math.ceil(count).toLocaleString();
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+
+                updateCount();
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-grid');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            statsObserver.observe(statsSection);
+        }
+
+        // Enhanced card hover effects
+        document.querySelectorAll('.division-card, .contact-card, .stat-card, .service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('service-card')) {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('service-card')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Liberation War Museum Committee Structure page loaded');
+            
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // Set default dates for report generation
+            const today = new Date();
+            const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+            
+            document.getElementById('reportFrom').value = lastMonth.toISOString().split('T')[0];
+            document.getElementById('reportTo').value = today.toISOString().split('T')[0];
+        });
+
+        // Responsive navigation for mobile
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.nav-menu').forEach(menu => {
+                    menu.style.flexWrap = 'wrap';
+                    menu.style.justifyContent = 'center';
+                });
+            }
+        });
+
+        // Form validation
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#e2e8f0';
+                }
+            });
+
+            return isValid;
+        }
+
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Phone validation
+        function validatePhone(phone) {
+            const re = /^[\+]?[1-9][\d]{0,15}$/;
+            return re.test(phone.replace(/\s/g, ''));
+        }
+    </script>
+</body>
+</html>
